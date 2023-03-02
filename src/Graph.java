@@ -1,6 +1,7 @@
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Graph {
@@ -51,7 +52,7 @@ public class Graph {
         vertices.add(sink);
 
         // Sort vertices by id
-        vertices.sort((v1, v2) -> v1.id - v2.id);
+        vertices.sort(Comparator.comparingInt(v -> v.id));
     }
 
     private List<Integer> getSuccessors(Vertex vertex){
