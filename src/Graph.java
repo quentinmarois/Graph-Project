@@ -5,6 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Graph {
+    private final String EMPTY_SYMBOL = "-";
     private final List<Vertex> vertices;
     public Graph(String filepath) {
 
@@ -55,6 +56,13 @@ public class Graph {
         vertices.sort(Comparator.comparingInt(v -> v.id));
     }
 
+    // TODO : Detect cycles
+    // TODO : Compute ranks of all vertices (only if no cycles)
+    // TODO : Compute earliest start time of all vertices
+    // TODO : Compute latest start time of all vertices
+    // TODO : Compute critical path
+
+
     private List<Integer> getSuccessors(Vertex vertex){
         List<Integer> successors = new ArrayList<>();
 
@@ -97,7 +105,7 @@ public class Graph {
         // Fill matrix with *
         for (int i = 0; i < vertices.size(); i++) {
             for (int j = 0; j < vertices.size(); j++) {
-                valueMatrix[i][j] = "*";
+                valueMatrix[i][j] = EMPTY_SYMBOL;
             }
         }
 
