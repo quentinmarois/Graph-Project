@@ -1,3 +1,5 @@
+import org.w3c.dom.Text;
+
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -54,12 +56,42 @@ public class Graph {
         vertices.sort((v1, v2) -> v1.id - v2.id);
     }
 
-    public void displayTriplets(){
-        // TODO : Show triplets by successors
+    private List<Integer> getSuccessors(Vertex vertex){
+        List<Integer> successors = new ArrayList<>();
+
+        for (Vertex v : vertices) {
+            if (v.predecessors.contains(vertex.id)) {
+                successors.add(v.id);
+            }
+        }
+
+        return successors;
     }
 
-    public void displayAdjacencyMatrix(){
-        // TODO : Show adjacency matrix
+    public void displayTriplets(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(TextColor.PURPLE).append(vertices.size()).append(TextColor.RESET).append(" vertices").append("\n");
+
+        int edges = 0;
+        for (Vertex v : vertices) {
+            edges += v.predecessors.size();
+        }
+        sb.append(TextColor.PURPLE).append(edges).append(TextColor.RESET).append(" edges").append("\n");
+
+        for (Vertex v : vertices) {
+            if (!getSuccessors(v).isEmpty()) {
+                for (int successor : getSuccessors(v)) {
+                    sb.append(TextColor.CYAN).append(v.id).append(TextColor.RESET).append(" -> ")
+                            .append(TextColor.GREEN).append(successor).append(TextColor.RESET).append(" = ")
+                            .append(TextColor.YELLOW).append(v.duration).append(TextColor.RESET).append("\n");
+                }
+            }
+        }
+        System.out.println(sb);
+    }
+
+    public void displayValueMatrix(){
+        System.out.println("Value Matrix");
     }
 
 
