@@ -1,5 +1,3 @@
-import org.w3c.dom.Text;
-
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
@@ -91,7 +89,39 @@ public class Graph {
     }
 
     public void displayValueMatrix(){
-        System.out.println("Value Matrix");
+        System.out.println("Value matrix");
+
+        String[][] valueMatrix = new String[vertices.size()][vertices.size()];
+
+        // Fill matrix with *
+        for (int i = 0; i < vertices.size(); i++) {
+            for (int j = 0; j < vertices.size(); j++) {
+                valueMatrix[i][j] = "*";
+            }
+        }
+
+        // Fill matrix with values
+        for (Vertex v : vertices) {
+            for (int successor : getSuccessors(v)) {
+                valueMatrix[v.id][successor] = TextColor.YELLOW + v.duration + TextColor.RESET;
+            }
+        }
+
+        // Print column headers
+        System.out.print(TextColor.GREEN + "\t");
+        for (int i = 0; i < vertices.size(); i++) {
+            System.out.print(i + "\t");
+        }
+        System.out.println(TextColor.RESET);
+
+        // Print row headers and values
+        for (int i = 0; i < vertices.size(); i++){
+            System.out.print(TextColor.CYAN + i + TextColor.RESET + "\t");
+            for (int j = 0; j < vertices.size(); j++){
+                System.out.print(valueMatrix[i][j] + "\t");
+            }
+            System.out.println();
+        }
     }
 
 
