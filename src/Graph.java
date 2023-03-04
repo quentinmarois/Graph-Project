@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Graph {
-    private final String EMPTY_SYMBOL = "-";
+    private static final String EMPTY_SYMBOL = "-";
     private final List<Vertex> vertices;
     public Graph(String filepath) {
 
