@@ -23,8 +23,6 @@ public class Vertex {
         this.predecessors = new ArrayList<>();
     }
 
-
-
     public void addPredecessor(int predecessor) {
         if (!this.predecessors.contains(predecessor)) {
             this.predecessors.add(predecessor);

@@ -6,10 +6,13 @@ import java.util.List;
 
 public class Graph {
     private static final String EMPTY_SYMBOL = "-";
+
+    private String filename;
     private final List<Vertex> vertices;
     public Graph(String filepath) {
 
         try{
+            filename = filepath;
             BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filepath), StandardCharsets.UTF_8));
 
             // Each line of the file is a vertex
@@ -55,8 +58,53 @@ public class Graph {
         // Sort vertices by id
         vertices.sort(Comparator.comparingInt(v -> v.id));
     }
+    private Graph(Graph graph) {
+        this.vertices = new ArrayList<>(graph.vertices);
+    }
 
-    // TODO : Detect cycles
+    public boolean hasCycle(boolean log) {
+        Graph graph = new Graph(this);
+
+        // While the graph has vertices
+        while (!graph.vertices.isEmpty()) {
+            // Find vertices with no predecessors
+            List<Vertex> noPredecessors = new ArrayList<>();
+
+            for (Vertex v : graph.vertices) {
+                if (v.predecessors.isEmpty()) {
+                    noPredecessors.add(v);
+                }
+            }
+
+            if (log) {
+                System.out.print("Entry points: ");
+
+                if (noPredecessors.isEmpty()) {
+                    System.out.println(TextColor.RED + "None" + TextColor.RESET);
+                } else {
+                    for (Vertex v : noPredecessors) {
+                        System.out.print(TextColor.CYAN + v.id + " " + TextColor.RESET);
+                    }
+                    System.out.println();
+                }
+            }
+
+
+
+            // If there are no vertices with no predecessors, there is a cycle
+            if (noPredecessors.isEmpty()) {
+                if (log) { System.out.println(TextColor.YELLOW + "No entry points, graph has a cycle" + TextColor.RESET); }
+                return true;
+            }
+            // Remove vertices with no predecessors
+            for (Vertex v : noPredecessors) {
+                graph.removeVertex(v);
+            }
+
+        }
+        if (log) { System.out.println(TextColor.YELLOW + "Graph empty, no cycles detected" + TextColor.RESET); }
+        return false;
+    }
     // TODO : Compute ranks of all vertices (only if no cycles)
     // TODO : Compute earliest start time of all vertices
     // TODO : Compute latest start time of all vertices
@@ -73,6 +121,15 @@ public class Graph {
         }
 
         return successors;
+    }
+
+    private void removeVertex(Vertex vertex){
+        // Remove vertex from predecessors
+        for (Vertex v : vertices) {
+            v.predecessors.remove((Integer) vertex.id);
+        }
+        // Remove vertex
+        vertices.remove(vertex);
     }
 
     public void displayTriplets(){
@@ -141,5 +198,9 @@ public class Graph {
             sb.append(v.toString()).append("\n");
         }
         return sb.toString();
+    }
+
+    public String getFilename() {
+        return filename;
     }
 }
