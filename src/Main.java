@@ -9,8 +9,9 @@ public class Main {
         }
 
         for (Graph graph : graphs) {
+            System.out.println("--------------------");
             System.out.println("Graph " + graph.getFilename());
-            System.out.println("Has cycle: " + graph.hasCycle(false));
+            System.out.println(graph);
         }
 
     }

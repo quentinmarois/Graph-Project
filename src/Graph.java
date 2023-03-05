@@ -57,10 +57,19 @@ public class Graph {
 
         // Sort vertices by id
         vertices.sort(Comparator.comparingInt(v -> v.id));
+
+        // Compute ranks
+        this.computeRanks(false);
+
     }
     private Graph(Graph graph) {
         this.filename = graph.filename;
-        this.vertices = new ArrayList<>(graph.vertices);
+        // Copy vertices
+        this.vertices = new ArrayList<>();
+        for (Vertex v : graph.vertices) {
+            this.vertices.add(new Vertex(v));
+        }
+
     }
 
     public boolean hasCycle(boolean log) {
@@ -106,7 +115,41 @@ public class Graph {
         if (log) { System.out.println(TextColor.YELLOW + "Graph empty, no cycles detected" + TextColor.RESET); }
         return false;
     }
-    // TODO : Compute ranks of all vertices (only if no cycles)
+
+    public void computeRanks(boolean log){
+        if (hasCycle(false)) {
+            if (log) { System.out.println(TextColor.RED + "Graph has a cycle, cannot compute ranks" + TextColor.RESET); }
+            return;
+        }
+
+        Graph graph = new Graph(this);
+        int rank = 0;
+
+        while (!graph.vertices.isEmpty()) {
+            // Find vertices with no predecessors
+            List<Vertex> noPredecessors = new ArrayList<>();
+
+            for (Vertex v : graph.vertices) {
+                if (v.predecessors.isEmpty()) {
+                    noPredecessors.add(v);
+                }
+            }
+
+            // Remove vertices with no predecessors from copy and set the rank to original graph
+            for (Vertex v : noPredecessors) {
+                graph.removeVertex(v);
+                this.vertices.get(v.id).setRank(rank);
+            }
+
+            rank++;
+        }
+
+        if (log) {
+            System.out.println(TextColor.YELLOW + "Ranks computed" + TextColor.RESET);
+            System.out.println(this);
+        }
+
+    }
     // TODO : Compute earliest start time of all vertices
     // TODO : Compute latest start time of all vertices
     // TODO : Compute critical path
