@@ -59,6 +59,7 @@ public class Graph {
         vertices.sort(Comparator.comparingInt(v -> v.id));
     }
     private Graph(Graph graph) {
+        this.filename = graph.filename;
         this.vertices = new ArrayList<>(graph.vertices);
     }
 
@@ -109,7 +110,6 @@ public class Graph {
     // TODO : Compute earliest start time of all vertices
     // TODO : Compute latest start time of all vertices
     // TODO : Compute critical path
-
 
     private List<Integer> getSuccessors(Vertex vertex){
         List<Integer> successors = new ArrayList<>();
