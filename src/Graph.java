@@ -7,7 +7,7 @@ import java.util.List;
 public class Graph {
     private static final String EMPTY_SYMBOL = "-";
 
-    private String filename;
+    private final String filename;
     private final List<Vertex> vertices;
     public Graph(String filepath) {
 

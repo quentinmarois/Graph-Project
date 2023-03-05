@@ -28,6 +28,7 @@ public class Vertex {
     public Vertex(Vertex vertex) {
         this.id = vertex.id;
         this.duration = vertex.duration;
+        this.rank = vertex.rank;
         this.predecessors = new ArrayList<>(vertex.predecessors);
     }
 
