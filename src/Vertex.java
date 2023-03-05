@@ -26,7 +26,9 @@ public class Vertex {
 
 
     public void addPredecessor(int predecessor) {
-        this.predecessors.add(predecessor);
+        if (!this.predecessors.contains(predecessor)) {
+            this.predecessors.add(predecessor);
+        }
     }
 
     @Override
