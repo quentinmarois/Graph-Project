@@ -11,7 +11,8 @@ public class Main {
         for (Graph graph : graphs) {
             System.out.println("--------------------");
             System.out.println("Graph " + graph.getFilename());
-            System.out.println(graph);
+            graph.displayTriplets();
+            graph.displayValueMatrix();
         }
 
     }

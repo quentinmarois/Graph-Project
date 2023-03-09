@@ -154,12 +154,12 @@ public class Graph {
     // TODO : Compute latest start time of all vertices
     // TODO : Compute critical path
 
-    private List<Integer> getSuccessors(Vertex vertex){
-        List<Integer> successors = new ArrayList<>();
+    private List<Vertex> getSuccessors(Vertex vertex){
+        List<Vertex> successors = new ArrayList<>();
 
         for (Vertex v : vertices) {
             if (v.predecessors.contains(vertex.id)) {
-                successors.add(v.id);
+                successors.add(v);
             }
         }
 
@@ -187,9 +187,9 @@ public class Graph {
 
         for (Vertex v : vertices) {
             if (!getSuccessors(v).isEmpty()) {
-                for (int successor : getSuccessors(v)) {
+                for (Vertex successor : getSuccessors(v)) {
                     sb.append(TextColor.CYAN).append(v.id).append(TextColor.RESET).append(" -> ")
-                            .append(TextColor.GREEN).append(successor).append(TextColor.RESET).append(" = ")
+                            .append(TextColor.GREEN).append(successor.id).append(TextColor.RESET).append(" = ")
                             .append(TextColor.YELLOW).append(v.duration).append(TextColor.RESET).append("\n");
                 }
             }
@@ -211,8 +211,8 @@ public class Graph {
 
         // Fill matrix with values
         for (Vertex v : vertices) {
-            for (int successor : getSuccessors(v)) {
-                valueMatrix[v.id][successor] = TextColor.YELLOW + v.duration + TextColor.RESET;
+            for (Vertex successor : getSuccessors(v)) {
+                valueMatrix[v.id][successor.id] = TextColor.YELLOW + v.duration + TextColor.RESET;
             }
         }
 
