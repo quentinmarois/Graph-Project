@@ -202,7 +202,7 @@ public class Graph {
 
         String[][] valueMatrix = new String[vertices.size()][vertices.size()];
 
-        // Fill matrix with *
+        // Fill matrix with EMPTY_SYMBOL
         for (int i = 0; i < vertices.size(); i++) {
             for (int j = 0; j < vertices.size(); j++) {
                 valueMatrix[i][j] = EMPTY_SYMBOL;
