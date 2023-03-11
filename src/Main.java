@@ -15,7 +15,7 @@ public class Main {
 //        }
         Graph graph = new Graph("src/tests/C01.txt");
         System.out.println(graph);
-        graph.computeEarliestTime();
-
+        graph.computeLatestTime();
+        graph.displayTimes();
     }
 }

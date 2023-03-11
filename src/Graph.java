@@ -149,53 +149,87 @@ public class Graph {
         }
 
     }
-    // TODO : Compute earliest start time of all vertices
     public void computeEarliestTime(){
         if (hasCycle(false)) {
             System.out.println(TextColor.RED + "Graph has a cycle, cannot compute earliest time" + TextColor.RESET);
             return;
         }
 
-        // Create copy and sort vertices by rank
-        Graph graph = new Graph(this);
-        graph.vertices.sort(Comparator.comparingInt(Vertex::getRank));
+        // Sort vertices by rank in ascending order
+        vertices.sort(Comparator.comparingInt(Vertex::getRank));
 
         // For each vertex
-        for (Vertex v : graph.vertices){
+        for (Vertex v : vertices){
             // If vertex has no predecessors (i.e. source), set earliest time to 0
             if (v.predecessors.isEmpty()){
-                v.earliestTime = 0;
+                getVertex(v.id).earliestTime = 0;
             } else {
                 // Else, set the earliest time as the max of the predecessors' earliest time + duration
                 int max = 0;
                 for (int predecessor : v.predecessors){
-                    int time = graph.getVertex(predecessor).earliestTime + graph.getVertex(predecessor).duration;
+                    int time = getVertex(predecessor).earliestTime + getVertex(predecessor).duration;
                     if (time > max){
                         max = time;
                     }
                 }
-                v.earliestTime = max;
+                getVertex(v.id).earliestTime = max;
             }
         }
-        graph.displayTimes();
+        // Sort back to original order
+        vertices.sort(Comparator.comparingInt(v -> v.id));
     }
 
-    private void displayTimes() {
+    public void computeLatestTime(){
+        if (hasCycle(false)) {
+            System.out.println(TextColor.RED + "Graph has a cycle, cannot compute latest time" + TextColor.RESET);
+            return;
+        }
+
+        // Earlier time must be computed first
+        this.computeEarliestTime();
+
+        // Sort vertices by rank in descending order
+        vertices.sort(Comparator.comparingInt(Vertex::getRank).reversed());
+
+        // For each vertex
+        for (Vertex v : vertices){
+            // If vertex has no successors (i.e. sink), set latest time to earliest time
+            if (getSuccessors(v).isEmpty()){
+                getVertex(v.id).latestTime = getVertex(v.id).earliestTime;
+            } else {
+                // Else, set the latest time as the min of the successors' latest time - duration
+                int min = Integer.MAX_VALUE;
+                for (Vertex successor : getSuccessors(v)){
+                    int time = getVertex(successor.id).latestTime;
+                    if (time < min){
+                        min = time;
+                    }
+                }
+                getVertex(v.id).latestTime = min - getVertex(v.id).duration;
+            }
+        }
+        // Sort back to original order
+        vertices.sort(Comparator.comparingInt(v -> v.id));
+    }
+
+    public void displayTimes() {
         StringBuilder duration = new StringBuilder();
         StringBuilder task = new StringBuilder();
         StringBuilder earliest = new StringBuilder();
+        StringBuilder latest = new StringBuilder();
 
         for (Vertex v : this.vertices){
             duration.append(v.duration).append("\t");
             task.append(v.id).append("\t");
             earliest.append(v.earliestTime).append("\t");
+            latest.append(v.latestTime).append("\t");
         }
         System.out.println("Task\t" + TextColor.CYAN + task + TextColor.RESET);
         System.out.println("Dur.\t" + TextColor.RED + duration + TextColor.RESET);
         System.out.println("Earl.\t" + TextColor.YELLOW + earliest + TextColor.RESET);
+        System.out.println("Late.\t" + TextColor.GREEN + latest + TextColor.RESET);
     }
 
-    // TODO : Compute latest start time of all vertices
     // TODO : Compute critical path
 
     private List<Vertex> getSuccessors(Vertex vertex){
