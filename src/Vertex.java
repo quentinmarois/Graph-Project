@@ -6,6 +6,9 @@ public class Vertex {
     public int duration;
     public List<Integer> predecessors;
 
+    public int earliestTime;
+    public int latestTime;
+
     private int rank = -1;
 
     public Vertex(String tableLine) {
@@ -30,6 +33,8 @@ public class Vertex {
         this.duration = vertex.duration;
         this.rank = vertex.rank;
         this.predecessors = new ArrayList<>(vertex.predecessors);
+        this.earliestTime = vertex.earliestTime;
+        this.latestTime = vertex.latestTime;
     }
 
     public void addPredecessor(int predecessor) {

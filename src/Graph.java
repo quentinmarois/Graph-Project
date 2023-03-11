@@ -100,7 +100,6 @@ public class Graph {
             }
 
 
-
             // If there are no vertices with no predecessors, there is a cycle
             if (noPredecessors.isEmpty()) {
                 if (log) { System.out.println(TextColor.YELLOW + "No entry points, graph has a cycle" + TextColor.RESET); }
@@ -151,6 +150,51 @@ public class Graph {
 
     }
     // TODO : Compute earliest start time of all vertices
+    public void computeEarliestTime(){
+        if (hasCycle(false)) {
+            System.out.println(TextColor.RED + "Graph has a cycle, cannot compute earliest time" + TextColor.RESET);
+            return;
+        }
+
+        // Create copy and sort vertices by rank
+        Graph graph = new Graph(this);
+        graph.vertices.sort(Comparator.comparingInt(Vertex::getRank));
+
+        // For each vertex
+        for (Vertex v : graph.vertices){
+            // If vertex has no predecessors (i.e. source), set earliest time to 0
+            if (v.predecessors.isEmpty()){
+                v.earliestTime = 0;
+            } else {
+                // Else, set the earliest time as the max of the predecessors' earliest time + duration
+                int max = 0;
+                for (int predecessor : v.predecessors){
+                    int time = graph.getVertex(predecessor).earliestTime + graph.getVertex(predecessor).duration;
+                    if (time > max){
+                        max = time;
+                    }
+                }
+                v.earliestTime = max;
+            }
+        }
+        graph.displayTimes();
+    }
+
+    private void displayTimes() {
+        StringBuilder duration = new StringBuilder();
+        StringBuilder task = new StringBuilder();
+        StringBuilder earliest = new StringBuilder();
+
+        for (Vertex v : this.vertices){
+            duration.append(v.duration).append("\t");
+            task.append(v.id).append("\t");
+            earliest.append(v.earliestTime).append("\t");
+        }
+        System.out.println("Task\t" + TextColor.CYAN + task + TextColor.RESET);
+        System.out.println("Dur.\t" + TextColor.RED + duration + TextColor.RESET);
+        System.out.println("Earl.\t" + TextColor.YELLOW + earliest + TextColor.RESET);
+    }
+
     // TODO : Compute latest start time of all vertices
     // TODO : Compute critical path
 
