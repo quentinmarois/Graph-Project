@@ -138,7 +138,7 @@ public class Graph {
             // Remove vertices with no predecessors from copy and set the rank to original graph
             for (Vertex v : noPredecessors) {
                 graph.removeVertex(v);
-                this.vertices.get(v.id).setRank(rank);
+                this.getVertex(v.id).setRank(rank);
             }
 
             rank++;
@@ -164,6 +164,17 @@ public class Graph {
         }
 
         return successors;
+    }
+
+    private Vertex getVertex(int id){
+        Vertex vertex = null;
+        for (Vertex v : vertices) {
+            if (v.id == id) {
+                vertex = v;
+                break;
+            }
+        }
+        return vertex;
     }
 
     private void removeVertex(Vertex vertex){
