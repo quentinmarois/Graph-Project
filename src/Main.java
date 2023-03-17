@@ -13,9 +13,9 @@ public class Main {
 //            System.out.println("Graph " + graph.getFilename());
 //            System.out.println(graph);
 //        }
-        Graph graph = new Graph("src/tests/C01.txt");
+        Graph graph = new Graph("src/tests/ex4.txt");
         System.out.println(graph);
-        graph.computeLatestTime();
         graph.displayTimes();
+        graph.displayCriticalPath();
     }
 }

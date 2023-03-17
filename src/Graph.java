@@ -213,17 +213,35 @@ public class Graph {
         StringBuilder task = new StringBuilder();
         StringBuilder earliest = new StringBuilder();
         StringBuilder latest = new StringBuilder();
+        StringBuilder total_float = new StringBuilder();
 
         for (Vertex v : this.vertices){
             duration.append(v.duration).append("\t");
             task.append(v.id).append("\t");
             earliest.append(v.earliestTime).append("\t");
             latest.append(v.latestTime).append("\t");
+            total_float.append(v.latestTime - v.earliestTime).append("\t");
         }
         System.out.println("Task\t" + TextColor.CYAN + task + TextColor.RESET);
         System.out.println("Dur.\t" + TextColor.RED + duration + TextColor.RESET);
         System.out.println("Earl.\t" + TextColor.YELLOW + earliest + TextColor.RESET);
         System.out.println("Late.\t" + TextColor.GREEN + latest + TextColor.RESET);
+        System.out.println("Float\t" + TextColor.PURPLE + total_float + TextColor.RESET);
+    }
+
+    public void displayCriticalPath(){
+        // Path with vertices with 0 total float
+        StringBuilder path = new StringBuilder();
+        path.append("Critical path : ");
+
+        for (Vertex v : this.vertices){
+            if (v.latestTime - v.earliestTime == 0){
+                path.append(TextColor.CYAN).append(v.id).append(TextColor.RESET).append(" -> ");
+            }
+        }
+        path.delete(path.length() - 4, path.length());
+        System.out.println(path);
+
     }
 
     // TODO : Compute critical path : add to displayTimes()
