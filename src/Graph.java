@@ -58,8 +58,8 @@ public class Graph {
         vertices.sort(Comparator.comparingInt(v -> v.id));
 
         computeRanks(false);
-        computeEarliestTime();
-        computeLatestTime();
+        computeEarliestTime(false);
+        computeLatestTime(false);
 
     }
     private Graph(Graph graph) {
@@ -73,6 +73,8 @@ public class Graph {
     }
 
     public boolean hasCycle(boolean log) {
+        if (log) { System.out.println(TextColor.YELLOW + "Checking for cycles by successive deletion of entry points (i.e. no predecessors)" + TextColor.RESET); }
+
         // Apply successive removal of vertices with no predecessors to a copy of the graph
         Graph graph = new Graph(this);
 
@@ -112,7 +114,20 @@ public class Graph {
             }
 
         }
-        if (log) { System.out.println(TextColor.YELLOW + "Graph empty, no cycles detected" + TextColor.RESET); }
+        if (log) { System.out.println(TextColor.YELLOW + "Graph empty, no cycles detected" + TextColor.RESET + "\n"); }
+        return false;
+    }
+
+    public boolean hasNegativeDuration(boolean log){
+        // Check if any vertex has a negative weight
+        if (log) { System.out.println(TextColor.YELLOW + "Checking for negative durations" + TextColor.RESET); }
+        for (Vertex v : vertices) {
+            if (v.duration < 0) {
+                if (log) { System.out.println(TextColor.RED + "Vertex " + v.id + " has a negative duration" + TextColor.RESET + "\n"); }
+                return true;
+            }
+        }
+        if (log) { System.out.println(TextColor.YELLOW + "No negative durations detected" + TextColor.RESET + "\n"); }
         return false;
     }
 
@@ -150,9 +165,9 @@ public class Graph {
         }
 
     }
-    public void computeEarliestTime(){
+    public void computeEarliestTime(boolean log){
         if (hasCycle(false)) {
-            System.out.println(TextColor.RED + "Graph has a cycle, cannot compute earliest time" + TextColor.RESET);
+            if (log) { System.out.println(TextColor.RED + "Graph has a cycle, cannot compute earliest time" + TextColor.RESET); }
             return;
         }
 
@@ -179,9 +194,9 @@ public class Graph {
         vertices.sort(Comparator.comparingInt(v -> v.id));
     }
 
-    public void computeLatestTime(){
+    public void computeLatestTime(boolean log){
         if (hasCycle(false)) {
-            System.out.println(TextColor.RED + "Graph has a cycle, cannot compute latest time" + TextColor.RESET);
+            if (log) { System.out.println(TextColor.RED + "Graph has a cycle, cannot compute latest time" + TextColor.RESET); }
             return;
         }
 
@@ -222,11 +237,11 @@ public class Graph {
             latest.append(v.latestTime).append("\t");
             total_float.append(v.latestTime - v.earliestTime).append("\t");
         }
-        System.out.println("Task\t" + TextColor.CYAN + task + TextColor.RESET);
-        System.out.println("Dur.\t" + TextColor.RED + duration + TextColor.RESET);
-        System.out.println("Earl.\t" + TextColor.YELLOW + earliest + TextColor.RESET);
-        System.out.println("Late.\t" + TextColor.GREEN + latest + TextColor.RESET);
-        System.out.println("Float\t" + TextColor.PURPLE + total_float + TextColor.RESET);
+        System.out.println("Task\t\t" + TextColor.CYAN + task + TextColor.RESET);
+        System.out.println("Duration\t" + TextColor.RED + duration + TextColor.RESET);
+        System.out.println("Earliest\t" + TextColor.YELLOW + earliest + TextColor.RESET);
+        System.out.println("Latest\t\t" + TextColor.GREEN + latest + TextColor.RESET);
+        System.out.println("Float\t\t" + TextColor.PURPLE + total_float + TextColor.RESET);
     }
 
     public void displayCriticalPath(){
@@ -243,11 +258,6 @@ public class Graph {
         System.out.println(path);
 
     }
-
-    // TODO : Compute critical path : add to displayTimes()
-    // TODO : Remove redundant comments
-    // TODO : Refactor
-    // TODO : displayTimes() : more beautiful
 
     private List<Vertex> getSuccessors(Vertex vertex){
         List<Vertex> successors = new ArrayList<>();
@@ -338,6 +348,7 @@ public class Graph {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
 
