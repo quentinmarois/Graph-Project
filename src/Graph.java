@@ -154,14 +154,10 @@ public class Graph {
             for (Vertex v : noPredecessors) {
                 graph.removeVertex(v);
                 this.getVertex(v.id).setRank(rank);
+                if (log) { System.out.println("Removing vertex " + TextColor.CYAN + v.id + TextColor.RESET + " with rank " + TextColor.PURPLE + rank + TextColor.RESET); }
             }
 
             rank++;
-        }
-
-        if (log) {
-            System.out.println(TextColor.YELLOW + "Ranks computed" + TextColor.RESET);
-            System.out.println(this);
         }
 
     }
@@ -178,16 +174,29 @@ public class Graph {
             // If vertex has no predecessors (i.e. source), set earliest time to 0
             if (v.predecessors.isEmpty()){
                 getVertex(v.id).earliestTime = 0;
+
+                if (log) {System.out.println("Vertex " + TextColor.CYAN + v.id + TextColor.RESET + " is the source, setting earliest time to " + TextColor.YELLOW + 0 + TextColor.RESET);}
             } else {
                 // Else, set the earliest time as the max of the predecessors' earliest time + duration
                 int max = 0;
+
+                if (log) {System.out.print("Vertex " + TextColor.CYAN + v.id + TextColor.RESET + ", duration " + TextColor.RED + v.duration +  TextColor.RESET +  " predecessors : ");}
+
                 for (int predecessor : v.predecessors){
+                    if (log) {System.out.print(TextColor.CYAN + predecessor + TextColor.RESET + " (" + TextColor.YELLOW + getVertex(predecessor).earliestTime + TextColor.RESET + "), ");}
+
                     int time = getVertex(predecessor).earliestTime + getVertex(predecessor).duration;
                     if (time > max){
                         max = time;
                     }
                 }
                 getVertex(v.id).earliestTime = max;
+
+                if (log) {
+                    // Remove trailing comma
+                    System.out.print("\b\b");
+                    System.out.println(" -> " + TextColor.YELLOW + v.earliestTime + TextColor.RESET);
+                }
             }
         }
         // Sort back to ascending order of id
@@ -207,16 +216,28 @@ public class Graph {
             // If vertex has no successors (i.e. sink), set the latest time to the earliest time
             if (getSuccessors(v).isEmpty()){
                 getVertex(v.id).latestTime = getVertex(v.id).earliestTime;
+                if (log) {System.out.println("Vertex " + TextColor.CYAN + v.id + TextColor.RESET + " is the destination, setting earliest time to its earliest time " + TextColor.YELLOW + v.earliestTime + TextColor.RESET);}
             } else {
                 // Else, set the latest time as the min of the successors' latest time - duration
                 int min = Integer.MAX_VALUE;
+
+                if (log) {System.out.print("Vertex " + TextColor.CYAN + v.id + TextColor.RESET + ", duration " + TextColor.RED + v.duration +  TextColor.RESET +  " successors : ");}
+
                 for (Vertex successor : getSuccessors(v)){
+                    if (log) {System.out.print(TextColor.CYAN + successor.id + TextColor.RESET + " (" + TextColor.GREEN + successor.latestTime + TextColor.RESET + "), ");}
+
                     int time = getVertex(successor.id).latestTime;
                     if (time < min){
                         min = time;
                     }
                 }
                 getVertex(v.id).latestTime = min - getVertex(v.id).duration;
+
+                if (log) {
+                    // Remove trailing comma
+                    System.out.print("\b\b");
+                    System.out.println(" -> " + TextColor.GREEN + v.earliestTime + TextColor.RESET);
+                }
             }
         }
         // Sort back to ascending order of id
