@@ -23,11 +23,9 @@ public class Main {
 
                     System.out.println("Computing earliest times of each vertex:");
                     graph.computeEarliestTime(true);
-                    System.out.println();
 
                     System.out.println("Computing latest times of each vertex:");
                     graph.computeLatestTime(true);
-                    System.out.println();
 
                     graph.displayTimes();
                     System.out.println();

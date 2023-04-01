@@ -73,7 +73,8 @@ public class Graph {
     }
 
     public boolean hasCycle(boolean log) {
-        if (log) { System.out.println(TextColor.YELLOW + "Checking for cycles by successive deletion of entry points (i.e. no predecessors)" + TextColor.RESET); }
+        StringBuilder cycleLog = new StringBuilder();
+        cycleLog.append(TextColor.YELLOW + "Checking for cycles by successive deletion of entry points (i.e. no predecessors)" + TextColor.RESET).append("\n");
 
         // Apply successive removal of vertices with no predecessors to a copy of the graph
         Graph graph = new Graph(this);
@@ -89,22 +90,20 @@ public class Graph {
                 }
             }
 
-            if (log) {
-                System.out.print("Entry points: ");
-
-                if (noPredecessors.isEmpty()) {
-                    System.out.println(TextColor.RED + "None" + TextColor.RESET);
-                } else {
-                    for (Vertex v : noPredecessors) {
-                        System.out.print(TextColor.CYAN + v.id + " " + TextColor.RESET);
-                    }
-                    System.out.println();
+            cycleLog.append("Entry points: ");
+            if (noPredecessors.isEmpty()) {
+                cycleLog.append(TextColor.RED + "None" + TextColor.RESET + "\n");
+            } else {
+                for (Vertex v : noPredecessors) {
+                    cycleLog.append(TextColor.CYAN).append(v.id).append(" ").append(TextColor.RESET);
                 }
+                cycleLog.append("\n");
             }
 
             // If there are no vertices with no predecessors, there is a cycle
             if (noPredecessors.isEmpty()) {
-                if (log) { System.out.println(TextColor.YELLOW + "No entry points, graph has a cycle" + TextColor.RESET); }
+                cycleLog.append(TextColor.YELLOW + "No entry points, graph has a cycle" + TextColor.RESET);
+                if (log) { System.out.println(cycleLog); }
                 return true;
             }
 
@@ -114,7 +113,8 @@ public class Graph {
             }
 
         }
-        if (log) { System.out.println(TextColor.YELLOW + "Graph empty, no cycles detected" + TextColor.RESET + "\n"); }
+        cycleLog.append(TextColor.YELLOW + "Graph empty, no cycles detected" + TextColor.RESET + "\n");
+        if (log) { System.out.println(cycleLog); }
         return false;
     }
 
@@ -162,6 +162,8 @@ public class Graph {
 
     }
     public void computeEarliestTime(boolean log){
+        StringBuilder earlTLog = new StringBuilder();
+
         if (hasCycle(false)) {
             if (log) { System.out.println(TextColor.RED + "Graph has a cycle, cannot compute earliest time" + TextColor.RESET); }
             return;
@@ -175,15 +177,15 @@ public class Graph {
             if (v.predecessors.isEmpty()){
                 getVertex(v.id).earliestTime = 0;
 
-                if (log) {System.out.println("Vertex " + TextColor.CYAN + v.id + TextColor.RESET + " is the source, setting earliest time to " + TextColor.YELLOW + 0 + TextColor.RESET);}
+                earlTLog.append("Vertex " + TextColor.CYAN).append(v.id).append(TextColor.RESET).append(" is the source, setting earliest time to ").append(TextColor.YELLOW).append(0).append(TextColor.RESET).append("\n");
             } else {
                 // Else, set the earliest time as the max of the predecessors' earliest time + duration
                 int max = 0;
 
-                if (log) {System.out.print("Vertex " + TextColor.CYAN + v.id + TextColor.RESET + ", duration " + TextColor.RED + v.duration +  TextColor.RESET +  " predecessors : ");}
+                earlTLog.append("Vertex " + TextColor.CYAN).append(v.id).append(TextColor.RESET).append(", duration ").append(TextColor.RED).append(v.duration).append(TextColor.RESET).append(" predecessors : ");
 
                 for (int predecessor : v.predecessors){
-                    if (log) {System.out.print(TextColor.CYAN + predecessor + TextColor.RESET + " (" + TextColor.YELLOW + getVertex(predecessor).earliestTime + TextColor.RESET + "), ");}
+                    earlTLog.append(TextColor.CYAN).append(predecessor).append(TextColor.RESET).append(" (").append(TextColor.YELLOW).append(getVertex(predecessor).earliestTime).append(TextColor.RESET).append("), ");
 
                     int time = getVertex(predecessor).earliestTime + getVertex(predecessor).duration;
                     if (time > max){
@@ -194,16 +196,19 @@ public class Graph {
 
                 if (log) {
                     // Remove trailing comma
-                    System.out.print("\b\b");
-                    System.out.println(" -> " + TextColor.YELLOW + v.earliestTime + TextColor.RESET);
+                    earlTLog.deleteCharAt(earlTLog.length() - 2);
+                    earlTLog.append("-> " + TextColor.YELLOW).append(v.earliestTime).append(TextColor.RESET).append("\n");
                 }
             }
         }
         // Sort back to ascending order of id
         vertices.sort(Comparator.comparingInt(v -> v.id));
+        if (log) { System.out.println(earlTLog); }
     }
 
     public void computeLatestTime(boolean log){
+        StringBuilder lateTLog = new StringBuilder();
+
         if (hasCycle(false)) {
             if (log) { System.out.println(TextColor.RED + "Graph has a cycle, cannot compute latest time" + TextColor.RESET); }
             return;
@@ -216,15 +221,15 @@ public class Graph {
             // If vertex has no successors (i.e. sink), set the latest time to the earliest time
             if (getSuccessors(v).isEmpty()){
                 getVertex(v.id).latestTime = getVertex(v.id).earliestTime;
-                if (log) {System.out.println("Vertex " + TextColor.CYAN + v.id + TextColor.RESET + " is the destination, setting earliest time to its earliest time " + TextColor.YELLOW + v.earliestTime + TextColor.RESET);}
+                lateTLog.append("Vertex " + TextColor.CYAN).append(v.id).append(TextColor.RESET).append(" is the destination, setting earliest time to its earliest time ").append(TextColor.YELLOW).append(v.earliestTime).append(TextColor.RESET).append("\n");
             } else {
                 // Else, set the latest time as the min of the successors' latest time - duration
                 int min = Integer.MAX_VALUE;
 
-                if (log) {System.out.print("Vertex " + TextColor.CYAN + v.id + TextColor.RESET + ", duration " + TextColor.RED + v.duration +  TextColor.RESET +  " successors : ");}
+                lateTLog.append("Vertex " + TextColor.CYAN).append(v.id).append(TextColor.RESET).append(", duration ").append(TextColor.RED).append(v.duration).append(TextColor.RESET).append(" successors : ");
 
                 for (Vertex successor : getSuccessors(v)){
-                    if (log) {System.out.print(TextColor.CYAN + successor.id + TextColor.RESET + " (" + TextColor.GREEN + successor.latestTime + TextColor.RESET + "), ");}
+                    lateTLog.append(TextColor.CYAN).append(successor.id).append(TextColor.RESET).append(" (").append(TextColor.GREEN).append(successor.latestTime).append(TextColor.RESET).append("), ");
 
                     int time = getVertex(successor.id).latestTime;
                     if (time < min){
@@ -235,13 +240,14 @@ public class Graph {
 
                 if (log) {
                     // Remove trailing comma
-                    System.out.print("\b\b");
-                    System.out.println(" -> " + TextColor.GREEN + v.earliestTime + TextColor.RESET);
+                    lateTLog.deleteCharAt(lateTLog.length() - 2);
+                    lateTLog.append("-> " + TextColor.GREEN).append(v.latestTime).append(TextColor.RESET).append("\n");
                 }
             }
         }
         // Sort back to ascending order of id
         vertices.sort(Comparator.comparingInt(v -> v.id));
+        if (log) { System.out.println(lateTLog); }
     }
 
     public void displayTimes() {
@@ -275,6 +281,7 @@ public class Graph {
                 path.append(TextColor.CYAN).append(v.id).append(TextColor.RESET).append(" -> ");
             }
         }
+        // Remove trailing arrow
         path.delete(path.length() - 4, path.length());
         System.out.println(path);
 
@@ -380,9 +387,5 @@ public class Graph {
             sb.append(v.toString()).append("\n");
         }
         return sb.toString();
-    }
-
-    public String getFilename() {
-        return filename;
     }
 }
