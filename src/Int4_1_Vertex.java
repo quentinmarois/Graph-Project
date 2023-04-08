@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Vertex {
+public class Int4_1_Vertex {
     public int id;
     public int duration;
     public List<Integer> predecessors;
@@ -11,7 +11,7 @@ public class Vertex {
 
     private int rank = -1;
 
-    public Vertex(String tableLine) {
+    public Int4_1_Vertex(String tableLine) {
         String[] line = tableLine.split(" ");
         this.id = Integer.parseInt(line[0]);
         this.duration = Integer.parseInt(line[1]);
@@ -22,13 +22,13 @@ public class Vertex {
         }
     }
 
-    public Vertex(int id, int duration) {
+    public Int4_1_Vertex(int id, int duration) {
         this.id = id;
         this.duration = duration;
         this.predecessors = new ArrayList<>();
     }
 
-    public Vertex(Vertex vertex) {
+    public Int4_1_Vertex(Int4_1_Vertex vertex) {
         this.id = vertex.id;
         this.duration = vertex.duration;
         this.rank = vertex.rank;
@@ -57,20 +57,20 @@ public class Vertex {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("ID: ").append(TextColor.CYAN).append(this.id).append(TextColor.RESET);
+        sb.append("ID: ").append(Int4_1_TextColor.CYAN).append(this.id).append(Int4_1_TextColor.RESET);
 
 
         if (this.rank != -1) {
-            sb.append(" Rank: ").append(TextColor.PURPLE).append(this.rank).append(TextColor.RESET);
+            sb.append(" Rank: ").append(Int4_1_TextColor.PURPLE).append(this.rank).append(Int4_1_TextColor.RESET);
         }
 
-        sb.append(" Duration: ").append(TextColor.YELLOW).append(this.duration).append(TextColor.RESET);
+        sb.append(" Duration: ").append(Int4_1_TextColor.YELLOW).append(this.duration).append(Int4_1_TextColor.RESET);
 
         if (this.predecessors.size() > 0) {
             sb.append(" Predecessors: ");
         }
 
-        sb.append(TextColor.GREEN);
+        sb.append(Int4_1_TextColor.GREEN);
 
         for (int i = 0; i < this.predecessors.size(); i++) {
             sb.append(this.predecessors.get(i));
@@ -78,7 +78,7 @@ public class Vertex {
                 sb.append(", ");
             }
         }
-        sb.append(TextColor.RESET);
+        sb.append(Int4_1_TextColor.RESET);
         return sb.toString();
     }
 }

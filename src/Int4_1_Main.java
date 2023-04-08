@@ -1,17 +1,19 @@
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Scanner;
 
-public class Main {
+public class Int4_1_Main {
+
+    private static final String TESTS_PATH = "tests/";
+    private static final String TRACE_FILE = "trace.txt";
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
 
         // Setup trace file and outputs
-        FileOutputStream traceFile = new FileOutputStream("trace.txt", true);
+        FileOutputStream traceFile = new FileOutputStream(TRACE_FILE, true);
         traceFile.write("\n\n".getBytes());
-        MultiOutputStream multiOut = new MultiOutputStream(System.out, traceFile);
+        Int4_1_MultiOutputStream multiOut = new Int4_1_MultiOutputStream(System.out, traceFile);
         PrintStream printStream = new PrintStream(multiOut);
         System.setOut(printStream);
 
@@ -22,14 +24,14 @@ public class Main {
                 String table = scanner.nextLine();
                 traceFile.write((table + '\n').getBytes());
 
-                Graph graph = new Graph("src/tests/" + table + ".txt");
+                Int4_1_Graph graph = new Int4_1_Graph( TESTS_PATH + table + ".txt");
 
                 System.out.println("Reading graph from table (adding alpha and omega):");
                 graph.displayTriplets();
                 graph.displayValueMatrix();
 
                 if (!graph.hasCycle(true) && !graph.hasNegativeDuration(true)){
-                    System.out.println(TextColor.GREEN + "This graph is a scheduling graph" + TextColor.RESET + "\n");
+                    System.out.println(Int4_1_TextColor.GREEN + "This graph is a scheduling graph" + Int4_1_TextColor.RESET + "\n");
 
                     System.out.println("Calculating ranks by successively removing vertices with no predecessors:");
                     graph.computeRanks(true);
@@ -48,11 +50,11 @@ public class Main {
                     graph.displayCriticalPath();
                     System.out.println();
                 }else{
-                    System.out.println(TextColor.RED + "This graph is not a scheduling graph" + TextColor.RESET + "\n");
+                    System.out.println(Int4_1_TextColor.RED + "This graph is not a scheduling graph" + Int4_1_TextColor.RESET + "\n");
                 }
 
             }catch (Exception e){
-                System.out.println(TextColor.RED + "Error: " + e.getMessage() + TextColor.RESET);
+                System.out.println(Int4_1_TextColor.RED + "Error: " + e.getMessage() + Int4_1_TextColor.RESET);
             }
             finally {
                 System.out.print("Do you want to continue? (y/n): ");

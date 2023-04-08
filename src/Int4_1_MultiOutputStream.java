@@ -3,11 +3,11 @@ import java.io.OutputStream;
 
 // This class is used to redirect the output of the console to multiple streams
 
-public class MultiOutputStream extends OutputStream
+public class Int4_1_MultiOutputStream extends OutputStream
 {
     OutputStream[] outputStreams;
 
-    public MultiOutputStream(OutputStream... outputStreams)
+    public Int4_1_MultiOutputStream(OutputStream... outputStreams)
     {
         this.outputStreams= outputStreams;
     }
