@@ -1,0 +1,1201 @@
+
+
+Enter constraint table to use (ex: table 1): table 1
+Reading graph from table (adding alpha and omega):
+15 vertices
+18 edges
+0 -> 1 = 0
+0 -> 2 = 0
+1 -> 3 = 2
+2 -> 4 = 5
+3 -> 4 = 4
+3 -> 12 = 4
+4 -> 5 = 2
+4 -> 11 = 2
+5 -> 6 = 5
+6 -> 7 = 5
+6 -> 13 = 5
+7 -> 8 = 9
+8 -> 9 = 2
+9 -> 14 = 5
+10 -> 14 = 1
+11 -> 10 = 1
+12 -> 13 = 1
+13 -> 4 = 9
+
+Value matrix
+	0	1	2	3	4	5	6	7	8	9	10	11	12	13	14	
+0	-	0	0	-	-	-	-	-	-	-	-	-	-	-	-	
+1	-	-	-	2	-	-	-	-	-	-	-	-	-	-	-	
+2	-	-	-	-	5	-	-	-	-	-	-	-	-	-	-	
+3	-	-	-	-	4	-	-	-	-	-	-	-	4	-	-	
+4	-	-	-	-	-	2	-	-	-	-	-	2	-	-	-	
+5	-	-	-	-	-	-	5	-	-	-	-	-	-	-	-	
+6	-	-	-	-	-	-	-	5	-	-	-	-	-	5	-	
+7	-	-	-	-	-	-	-	-	9	-	-	-	-	-	-	
+8	-	-	-	-	-	-	-	-	-	2	-	-	-	-	-	
+9	-	-	-	-	-	-	-	-	-	-	-	-	-	-	5	
+10	-	-	-	-	-	-	-	-	-	-	-	-	-	-	1	
+11	-	-	-	-	-	-	-	-	-	-	1	-	-	-	-	
+12	-	-	-	-	-	-	-	-	-	-	-	-	-	1	-	
+13	-	-	-	-	9	-	-	-	-	-	-	-	-	-	-	
+14	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	
+
+Checking for cycles by successive deletion of entry points (i.e. no predecessors)
+Entry points: 0 
+Entry points: 1 2 
+Entry points: 3 
+Entry points: 12 
+Entry points: None
+No entry points, graph has a cycle
+This graph is not a scheduling graph
+
+Do you want to continue? (y/n): y
+Enter constraint table to use (ex: table 1): table 2
+Reading graph from table (adding alpha and omega):
+15 vertices
+23 edges
+0 -> 1 = 0
+0 -> 2 = 0
+1 -> 3 = 2
+1 -> 6 = 2
+2 -> 6 = 5
+3 -> 4 = 4
+4 -> 5 = 1
+5 -> 14 = 9
+6 -> 5 = 2
+6 -> 7 = 2
+6 -> 11 = 2
+6 -> 13 = 2
+7 -> 8 = 5
+7 -> 12 = 5
+8 -> 5 = 5
+8 -> 9 = 5
+8 -> 12 = 5
+9 -> 10 = 9
+9 -> 12 = 9
+10 -> 12 = 2
+11 -> 13 = 19
+12 -> 14 = 5
+13 -> 14 = 1
+
+Value matrix
+	0	1	2	3	4	5	6	7	8	9	10	11	12	13	14	
+0	-	0	0	-	-	-	-	-	-	-	-	-	-	-	-	
+1	-	-	-	2	-	-	2	-	-	-	-	-	-	-	-	
+2	-	-	-	-	-	-	5	-	-	-	-	-	-	-	-	
+3	-	-	-	-	4	-	-	-	-	-	-	-	-	-	-	
+4	-	-	-	-	-	1	-	-	-	-	-	-	-	-	-	
+5	-	-	-	-	-	-	-	-	-	-	-	-	-	-	9	
+6	-	-	-	-	-	2	-	2	-	-	-	2	-	2	-	
+7	-	-	-	-	-	-	-	-	5	-	-	-	5	-	-	
+8	-	-	-	-	-	5	-	-	-	5	-	-	5	-	-	
+9	-	-	-	-	-	-	-	-	-	-	9	-	9	-	-	
+10	-	-	-	-	-	-	-	-	-	-	-	-	2	-	-	
+11	-	-	-	-	-	-	-	-	-	-	-	-	-	19	-	
+12	-	-	-	-	-	-	-	-	-	-	-	-	-	-	5	
+13	-	-	-	-	-	-	-	-	-	-	-	-	-	-	1	
+14	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	
+
+Checking for cycles by successive deletion of entry points (i.e. no predecessors)
+Entry points: 0 
+Entry points: 1 2 
+Entry points: 3 6 
+Entry points: 4 7 11 
+Entry points: 8 13 
+Entry points: 5 9 
+Entry points: 10 
+Entry points: 12 
+Entry points: 14 
+Graph empty, no cycles detected
+
+Checking for negative durations
+No negative durations detected
+
+This graph is a scheduling graph
+
+Calculating ranks by successively removing vertices with no predecessors:
+Removing vertex 0 with rank 0
+Removing vertex 1 with rank 1
+Removing vertex 2 with rank 1
+Removing vertex 3 with rank 2
+Removing vertex 6 with rank 2
+Removing vertex 4 with rank 3
+Removing vertex 7 with rank 3
+Removing vertex 11 with rank 3
+Removing vertex 8 with rank 4
+Removing vertex 13 with rank 4
+Removing vertex 5 with rank 5
+Removing vertex 9 with rank 5
+Removing vertex 10 with rank 6
+Removing vertex 12 with rank 7
+Removing vertex 14 with rank 8
+
+Computing earliest times of each vertex:
+Vertex 0 is the source, setting earliest time to 0
+Vertex 1, duration 2 predecessors : 0 (0) -> 0
+Vertex 2, duration 5 predecessors : 0 (0) -> 0
+Vertex 3, duration 4 predecessors : 1 (0) -> 2
+Vertex 6, duration 2 predecessors : 1 (0), 2 (0) -> 5
+Vertex 4, duration 1 predecessors : 3 (2) -> 6
+Vertex 7, duration 5 predecessors : 6 (5) -> 7
+Vertex 11, duration 19 predecessors : 6 (5) -> 7
+Vertex 8, duration 5 predecessors : 7 (7) -> 12
+Vertex 13, duration 1 predecessors : 6 (5), 11 (7) -> 26
+Vertex 5, duration 9 predecessors : 4 (6), 6 (5), 8 (12) -> 17
+Vertex 9, duration 9 predecessors : 8 (12) -> 17
+Vertex 10, duration 2 predecessors : 9 (17) -> 26
+Vertex 12, duration 5 predecessors : 7 (7), 8 (12), 9 (17), 10 (26) -> 28
+Vertex 14, duration 0 predecessors : 5 (17), 12 (28), 13 (26) -> 33
+
+Computing latest times of each vertex:
+Vertex 14 is the destination, setting earliest time to its earliest time 33
+Vertex 12, duration 5 successors : 14 (33) -> 28
+Vertex 10, duration 2 successors : 12 (28) -> 26
+Vertex 5, duration 9 successors : 14 (33) -> 24
+Vertex 9, duration 9 successors : 12 (28), 10 (26) -> 17
+Vertex 8, duration 5 successors : 12 (28), 5 (24), 9 (17) -> 12
+Vertex 13, duration 1 successors : 14 (33) -> 32
+Vertex 4, duration 1 successors : 5 (24) -> 23
+Vertex 7, duration 5 successors : 12 (28), 8 (12) -> 7
+Vertex 11, duration 19 successors : 13 (32) -> 13
+Vertex 3, duration 4 successors : 4 (23) -> 19
+Vertex 6, duration 2 successors : 5 (24), 13 (32), 7 (7), 11 (13) -> 5
+Vertex 1, duration 2 successors : 3 (19), 6 (5) -> 3
+Vertex 2, duration 5 successors : 6 (5) -> 0
+Vertex 0, duration 0 successors : 1 (3), 2 (0) -> 0
+
+Task		0	1	2	3	4	5	6	7	8	9	10	11	12	13	14	
+Duration	0	2	5	4	1	9	2	5	5	9	2	19	5	1	0	
+Earliest	0	0	0	2	6	17	5	7	12	17	26	7	28	26	33	
+Latest		0	3	0	19	23	24	5	7	12	17	26	13	28	32	33	
+Float		0	3	0	17	17	7	0	0	0	0	0	6	0	6	0	
+
+Displaying critical path:
+Critical path : 0 -> 2 -> 6 -> 7 -> 8 -> 9 -> 10 -> 12 -> 14
+
+Do you want to continue? (y/n): y
+Enter constraint table to use (ex: table 1): table 3
+Reading graph from table (adding alpha and omega):
+14 vertices
+22 edges
+0 -> 1 = 0
+0 -> 2 = 0
+1 -> 3 = 2
+2 -> 3 = 5
+2 -> 4 = 5
+3 -> 12 = 4
+4 -> 3 = 2
+4 -> 5 = 2
+4 -> 8 = 2
+4 -> 11 = 2
+5 -> 6 = 5
+5 -> 9 = 5
+6 -> 7 = 5
+6 -> 8 = 5
+6 -> 9 = 5
+7 -> 8 = 9
+7 -> 9 = 9
+8 -> 13 = 1
+9 -> 13 = 5
+10 -> 13 = 9
+11 -> 10 = 1
+12 -> 8 = 1
+
+Value matrix
+	0	1	2	3	4	5	6	7	8	9	10	11	12	13	
+0	-	0	0	-	-	-	-	-	-	-	-	-	-	-	
+1	-	-	-	2	-	-	-	-	-	-	-	-	-	-	
+2	-	-	-	5	5	-	-	-	-	-	-	-	-	-	
+3	-	-	-	-	-	-	-	-	-	-	-	-	4	-	
+4	-	-	-	2	-	2	-	-	2	-	-	2	-	-	
+5	-	-	-	-	-	-	5	-	-	5	-	-	-	-	
+6	-	-	-	-	-	-	-	5	5	5	-	-	-	-	
+7	-	-	-	-	-	-	-	-	9	9	-	-	-	-	
+8	-	-	-	-	-	-	-	-	-	-	-	-	-	1	
+9	-	-	-	-	-	-	-	-	-	-	-	-	-	5	
+10	-	-	-	-	-	-	-	-	-	-	-	-	-	9	
+11	-	-	-	-	-	-	-	-	-	-	1	-	-	-	
+12	-	-	-	-	-	-	-	-	1	-	-	-	-	-	
+13	-	-	-	-	-	-	-	-	-	-	-	-	-	-	
+
+Checking for cycles by successive deletion of entry points (i.e. no predecessors)
+Entry points: 0 
+Entry points: 1 2 
+Entry points: 4 
+Entry points: 3 5 11 
+Entry points: 6 10 12 
+Entry points: 7 
+Entry points: 8 9 
+Entry points: 13 
+Graph empty, no cycles detected
+
+Checking for negative durations
+No negative durations detected
+
+This graph is a scheduling graph
+
+Calculating ranks by successively removing vertices with no predecessors:
+Removing vertex 0 with rank 0
+Removing vertex 1 with rank 1
+Removing vertex 2 with rank 1
+Removing vertex 4 with rank 2
+Removing vertex 3 with rank 3
+Removing vertex 5 with rank 3
+Removing vertex 11 with rank 3
+Removing vertex 6 with rank 4
+Removing vertex 10 with rank 4
+Removing vertex 12 with rank 4
+Removing vertex 7 with rank 5
+Removing vertex 8 with rank 6
+Removing vertex 9 with rank 6
+Removing vertex 13 with rank 7
+
+Computing earliest times of each vertex:
+Vertex 0 is the source, setting earliest time to 0
+Vertex 1, duration 2 predecessors : 0 (0) -> 0
+Vertex 2, duration 5 predecessors : 0 (0) -> 0
+Vertex 4, duration 2 predecessors : 2 (0) -> 5
+Vertex 3, duration 4 predecessors : 1 (0), 2 (0), 4 (5) -> 7
+Vertex 5, duration 5 predecessors : 4 (5) -> 7
+Vertex 11, duration 1 predecessors : 4 (5) -> 7
+Vertex 6, duration 5 predecessors : 5 (7) -> 12
+Vertex 10, duration 9 predecessors : 11 (7) -> 8
+Vertex 12, duration 1 predecessors : 3 (7) -> 11
+Vertex 7, duration 9 predecessors : 6 (12) -> 17
+Vertex 8, duration 1 predecessors : 4 (5), 6 (12), 7 (17), 12 (11) -> 26
+Vertex 9, duration 5 predecessors : 5 (7), 6 (12), 7 (17) -> 26
+Vertex 13, duration 0 predecessors : 8 (26), 9 (26), 10 (8) -> 31
+
+Computing latest times of each vertex:
+Vertex 13 is the destination, setting earliest time to its earliest time 31
+Vertex 8, duration 1 successors : 13 (31) -> 30
+Vertex 9, duration 5 successors : 13 (31) -> 26
+Vertex 7, duration 9 successors : 8 (30), 9 (26) -> 17
+Vertex 6, duration 5 successors : 8 (30), 9 (26), 7 (17) -> 12
+Vertex 10, duration 9 successors : 13 (31) -> 22
+Vertex 12, duration 1 successors : 8 (30) -> 29
+Vertex 3, duration 4 successors : 12 (29) -> 25
+Vertex 5, duration 5 successors : 9 (26), 6 (12) -> 7
+Vertex 11, duration 1 successors : 10 (22) -> 21
+Vertex 4, duration 2 successors : 8 (30), 3 (25), 5 (7), 11 (21) -> 5
+Vertex 1, duration 2 successors : 3 (25) -> 23
+Vertex 2, duration 5 successors : 3 (25), 4 (5) -> 0
+Vertex 0, duration 0 successors : 1 (23), 2 (0) -> 0
+
+Task		0	1	2	3	4	5	6	7	8	9	10	11	12	13	
+Duration	0	2	5	4	2	5	5	9	1	5	9	1	1	0	
+Earliest	0	0	0	7	5	7	12	17	26	26	8	7	11	31	
+Latest		0	23	0	25	5	7	12	17	30	26	22	21	29	31	
+Float		0	23	0	18	0	0	0	0	4	0	14	14	18	0	
+
+Displaying critical path:
+Critical path : 0 -> 2 -> 4 -> 5 -> 6 -> 7 -> 9 -> 13
+
+Do you want to continue? (y/n): y
+Enter constraint table to use (ex: table 1): table 4
+Reading graph from table (adding alpha and omega):
+13 vertices
+16 edges
+0 -> 1 = 0
+0 -> 2 = 0
+1 -> 4 = 3
+2 -> 3 = 2
+3 -> 10 = 3
+4 -> 5 = 5
+4 -> 7 = 5
+4 -> 9 = 5
+5 -> 6 = 4
+5 -> 8 = 4
+6 -> 11 = 2
+7 -> 8 = 2
+8 -> 11 = 4
+9 -> 10 = 5
+10 -> 12 = 1
+11 -> 12 = 2
+
+Value matrix
+	0	1	2	3	4	5	6	7	8	9	10	11	12	
+0	-	0	0	-	-	-	-	-	-	-	-	-	-	
+1	-	-	-	-	3	-	-	-	-	-	-	-	-	
+2	-	-	-	2	-	-	-	-	-	-	-	-	-	
+3	-	-	-	-	-	-	-	-	-	-	3	-	-	
+4	-	-	-	-	-	5	-	5	-	5	-	-	-	
+5	-	-	-	-	-	-	4	-	4	-	-	-	-	
+6	-	-	-	-	-	-	-	-	-	-	-	2	-	
+7	-	-	-	-	-	-	-	-	2	-	-	-	-	
+8	-	-	-	-	-	-	-	-	-	-	-	4	-	
+9	-	-	-	-	-	-	-	-	-	-	5	-	-	
+10	-	-	-	-	-	-	-	-	-	-	-	-	1	
+11	-	-	-	-	-	-	-	-	-	-	-	-	2	
+12	-	-	-	-	-	-	-	-	-	-	-	-	-	
+
+Checking for cycles by successive deletion of entry points (i.e. no predecessors)
+Entry points: 0 
+Entry points: 1 2 
+Entry points: 3 4 
+Entry points: 5 7 9 
+Entry points: 6 8 10 
+Entry points: 11 
+Entry points: 12 
+Graph empty, no cycles detected
+
+Checking for negative durations
+No negative durations detected
+
+This graph is a scheduling graph
+
+Calculating ranks by successively removing vertices with no predecessors:
+Removing vertex 0 with rank 0
+Removing vertex 1 with rank 1
+Removing vertex 2 with rank 1
+Removing vertex 3 with rank 2
+Removing vertex 4 with rank 2
+Removing vertex 5 with rank 3
+Removing vertex 7 with rank 3
+Removing vertex 9 with rank 3
+Removing vertex 6 with rank 4
+Removing vertex 8 with rank 4
+Removing vertex 10 with rank 4
+Removing vertex 11 with rank 5
+Removing vertex 12 with rank 6
+
+Computing earliest times of each vertex:
+Vertex 0 is the source, setting earliest time to 0
+Vertex 1, duration 3 predecessors : 0 (0) -> 0
+Vertex 2, duration 2 predecessors : 0 (0) -> 0
+Vertex 3, duration 3 predecessors : 2 (0) -> 2
+Vertex 4, duration 5 predecessors : 1 (0) -> 3
+Vertex 5, duration 4 predecessors : 4 (3) -> 8
+Vertex 7, duration 2 predecessors : 4 (3) -> 8
+Vertex 9, duration 5 predecessors : 4 (3) -> 8
+Vertex 6, duration 2 predecessors : 5 (8) -> 12
+Vertex 8, duration 4 predecessors : 5 (8), 7 (8) -> 12
+Vertex 10, duration 1 predecessors : 3 (2), 9 (8) -> 13
+Vertex 11, duration 2 predecessors : 6 (12), 8 (12) -> 16
+Vertex 12, duration 0 predecessors : 10 (13), 11 (16) -> 18
+
+Computing latest times of each vertex:
+Vertex 12 is the destination, setting earliest time to its earliest time 18
+Vertex 11, duration 2 successors : 12 (18) -> 16
+Vertex 6, duration 2 successors : 11 (16) -> 14
+Vertex 8, duration 4 successors : 11 (16) -> 12
+Vertex 10, duration 1 successors : 12 (18) -> 17
+Vertex 5, duration 4 successors : 6 (14), 8 (12) -> 8
+Vertex 7, duration 2 successors : 8 (12) -> 10
+Vertex 9, duration 5 successors : 10 (17) -> 12
+Vertex 3, duration 3 successors : 10 (17) -> 14
+Vertex 4, duration 5 successors : 5 (8), 7 (10), 9 (12) -> 3
+Vertex 1, duration 3 successors : 4 (3) -> 0
+Vertex 2, duration 2 successors : 3 (14) -> 12
+Vertex 0, duration 0 successors : 1 (0), 2 (12) -> 0
+
+Task		0	1	2	3	4	5	6	7	8	9	10	11	12	
+Duration	0	3	2	3	5	4	2	2	4	5	1	2	0	
+Earliest	0	0	0	2	3	8	12	8	12	8	13	16	18	
+Latest		0	0	12	14	3	8	14	10	12	12	17	16	18	
+Float		0	0	12	12	0	0	2	2	0	4	4	0	0	
+
+Displaying critical path:
+Critical path : 0 -> 1 -> 4 -> 5 -> 8 -> 11 -> 12
+
+Do you want to continue? (y/n): y
+Enter constraint table to use (ex: table 1): table 5
+Reading graph from table (adding alpha and omega):
+15 vertices
+18 edges
+0 -> 1 = 0
+0 -> 2 = 0
+1 -> 3 = 2
+2 -> 4 = 5
+3 -> 4 = 4
+3 -> 12 = 4
+4 -> 5 = 2
+4 -> 11 = 2
+5 -> 6 = 5
+6 -> 7 = 5
+6 -> 13 = 5
+7 -> 8 = 9
+8 -> 9 = 2
+9 -> 14 = 5
+10 -> 14 = 1
+11 -> 10 = 1
+12 -> 13 = 1
+13 -> 14 = 9
+
+Value matrix
+	0	1	2	3	4	5	6	7	8	9	10	11	12	13	14	
+0	-	0	0	-	-	-	-	-	-	-	-	-	-	-	-	
+1	-	-	-	2	-	-	-	-	-	-	-	-	-	-	-	
+2	-	-	-	-	5	-	-	-	-	-	-	-	-	-	-	
+3	-	-	-	-	4	-	-	-	-	-	-	-	4	-	-	
+4	-	-	-	-	-	2	-	-	-	-	-	2	-	-	-	
+5	-	-	-	-	-	-	5	-	-	-	-	-	-	-	-	
+6	-	-	-	-	-	-	-	5	-	-	-	-	-	5	-	
+7	-	-	-	-	-	-	-	-	9	-	-	-	-	-	-	
+8	-	-	-	-	-	-	-	-	-	2	-	-	-	-	-	
+9	-	-	-	-	-	-	-	-	-	-	-	-	-	-	5	
+10	-	-	-	-	-	-	-	-	-	-	-	-	-	-	1	
+11	-	-	-	-	-	-	-	-	-	-	1	-	-	-	-	
+12	-	-	-	-	-	-	-	-	-	-	-	-	-	1	-	
+13	-	-	-	-	-	-	-	-	-	-	-	-	-	-	9	
+14	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-	
+
+Checking for cycles by successive deletion of entry points (i.e. no predecessors)
+Entry points: 0 
+Entry points: 1 2 
+Entry points: 3 
+Entry points: 4 12 
+Entry points: 5 11 
+Entry points: 6 10 
+Entry points: 7 13 
+Entry points: 8 
+Entry points: 9 
+Entry points: 14 
+Graph empty, no cycles detected
+
+Checking for negative durations
+No negative durations detected
+
+This graph is a scheduling graph
+
+Calculating ranks by successively removing vertices with no predecessors:
+Removing vertex 0 with rank 0
+Removing vertex 1 with rank 1
+Removing vertex 2 with rank 1
+Removing vertex 3 with rank 2
+Removing vertex 4 with rank 3
+Removing vertex 12 with rank 3
+Removing vertex 5 with rank 4
+Removing vertex 11 with rank 4
+Removing vertex 6 with rank 5
+Removing vertex 10 with rank 5
+Removing vertex 7 with rank 6
+Removing vertex 13 with rank 6
+Removing vertex 8 with rank 7
+Removing vertex 9 with rank 8
+Removing vertex 14 with rank 9
+
+Computing earliest times of each vertex:
+Vertex 0 is the source, setting earliest time to 0
+Vertex 1, duration 2 predecessors : 0 (0) -> 0
+Vertex 2, duration 5 predecessors : 0 (0) -> 0
+Vertex 3, duration 4 predecessors : 1 (0) -> 2
+Vertex 4, duration 2 predecessors : 2 (0), 3 (2) -> 6
+Vertex 12, duration 1 predecessors : 3 (2) -> 6
+Vertex 5, duration 5 predecessors : 4 (6) -> 8
+Vertex 11, duration 1 predecessors : 4 (6) -> 8
+Vertex 6, duration 5 predecessors : 5 (8) -> 13
+Vertex 10, duration 1 predecessors : 11 (8) -> 9
+Vertex 7, duration 9 predecessors : 6 (13) -> 18
+Vertex 13, duration 9 predecessors : 6 (13), 12 (6) -> 18
+Vertex 8, duration 2 predecessors : 7 (18) -> 27
+Vertex 9, duration 5 predecessors : 8 (27) -> 29
+Vertex 14, duration 0 predecessors : 9 (29), 10 (9), 13 (18) -> 34
+
+Computing latest times of each vertex:
+Vertex 14 is the destination, setting earliest time to its earliest time 34
+Vertex 9, duration 5 successors : 14 (34) -> 29
+Vertex 8, duration 2 successors : 9 (29) -> 27
+Vertex 7, duration 9 successors : 8 (27) -> 18
+Vertex 13, duration 9 successors : 14 (34) -> 25
+Vertex 6, duration 5 successors : 7 (18), 13 (25) -> 13
+Vertex 10, duration 1 successors : 14 (34) -> 33
+Vertex 5, duration 5 successors : 6 (13) -> 8
+Vertex 11, duration 1 successors : 10 (33) -> 32
+Vertex 4, duration 2 successors : 5 (8), 11 (32) -> 6
+Vertex 12, duration 1 successors : 13 (25) -> 24
+Vertex 3, duration 4 successors : 4 (6), 12 (24) -> 2
+Vertex 1, duration 2 successors : 3 (2) -> 0
+Vertex 2, duration 5 successors : 4 (6) -> 1
+Vertex 0, duration 0 successors : 1 (0), 2 (1) -> 0
+
+Task		0	1	2	3	4	5	6	7	8	9	10	11	12	13	14	
+Duration	0	2	5	4	2	5	5	9	2	5	1	1	1	9	0	
+Earliest	0	0	0	2	6	8	13	18	27	29	9	8	6	18	34	
+Latest		0	0	1	2	6	8	13	18	27	29	33	32	24	25	34	
+Float		0	0	1	0	0	0	0	0	0	0	24	24	18	7	0	
+
+Displaying critical path:
+Critical path : 0 -> 1 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 14
+
+Do you want to continue? (y/n): y
+Enter constraint table to use (ex: table 1): table 6
+Reading graph from table (adding alpha and omega):
+14 vertices
+23 edges
+0 -> 1 = 0
+0 -> 2 = 0
+1 -> 3 = 10
+1 -> 4 = 10
+1 -> 12 = 10
+2 -> 3 = 10
+2 -> 4 = 10
+3 -> 9 = 9
+3 -> 10 = 9
+4 -> 5 = 5
+4 -> 7 = 5
+4 -> 9 = 5
+5 -> 6 = 4
+5 -> 8 = 4
+6 -> 11 = 2
+6 -> 12 = 2
+7 -> 8 = 2
+8 -> 11 = 4
+9 -> 8 = 8
+9 -> 10 = 8
+10 -> 11 = 12
+11 -> 13 = 2
+12 -> 13 = 20
+
+Value matrix
+	0	1	2	3	4	5	6	7	8	9	10	11	12	13	
+0	-	0	0	-	-	-	-	-	-	-	-	-	-	-	
+1	-	-	-	10	10	-	-	-	-	-	-	-	10	-	
+2	-	-	-	10	10	-	-	-	-	-	-	-	-	-	
+3	-	-	-	-	-	-	-	-	-	9	9	-	-	-	
+4	-	-	-	-	-	5	-	5	-	5	-	-	-	-	
+5	-	-	-	-	-	-	4	-	4	-	-	-	-	-	
+6	-	-	-	-	-	-	-	-	-	-	-	2	2	-	
+7	-	-	-	-	-	-	-	-	2	-	-	-	-	-	
+8	-	-	-	-	-	-	-	-	-	-	-	4	-	-	
+9	-	-	-	-	-	-	-	-	8	-	8	-	-	-	
+10	-	-	-	-	-	-	-	-	-	-	-	12	-	-	
+11	-	-	-	-	-	-	-	-	-	-	-	-	-	2	
+12	-	-	-	-	-	-	-	-	-	-	-	-	-	20	
+13	-	-	-	-	-	-	-	-	-	-	-	-	-	-	
+
+Checking for cycles by successive deletion of entry points (i.e. no predecessors)
+Entry points: 0 
+Entry points: 1 2 
+Entry points: 3 4 
+Entry points: 5 7 9 
+Entry points: 6 8 10 
+Entry points: 11 12 
+Entry points: 13 
+Graph empty, no cycles detected
+
+Checking for negative durations
+No negative durations detected
+
+This graph is a scheduling graph
+
+Calculating ranks by successively removing vertices with no predecessors:
+Removing vertex 0 with rank 0
+Removing vertex 1 with rank 1
+Removing vertex 2 with rank 1
+Removing vertex 3 with rank 2
+Removing vertex 4 with rank 2
+Removing vertex 5 with rank 3
+Removing vertex 7 with rank 3
+Removing vertex 9 with rank 3
+Removing vertex 6 with rank 4
+Removing vertex 8 with rank 4
+Removing vertex 10 with rank 4
+Removing vertex 11 with rank 5
+Removing vertex 12 with rank 5
+Removing vertex 13 with rank 6
+
+Computing earliest times of each vertex:
+Vertex 0 is the source, setting earliest time to 0
+Vertex 1, duration 10 predecessors : 0 (0) -> 0
+Vertex 2, duration 10 predecessors : 0 (0) -> 0
+Vertex 3, duration 9 predecessors : 1 (0), 2 (0) -> 10
+Vertex 4, duration 5 predecessors : 1 (0), 2 (0) -> 10
+Vertex 5, duration 4 predecessors : 4 (10) -> 15
+Vertex 7, duration 2 predecessors : 4 (10) -> 15
+Vertex 9, duration 8 predecessors : 3 (10), 4 (10) -> 19
+Vertex 6, duration 2 predecessors : 5 (15) -> 19
+Vertex 8, duration 4 predecessors : 5 (15), 7 (15), 9 (19) -> 27
+Vertex 10, duration 12 predecessors : 3 (10), 9 (19) -> 27
+Vertex 11, duration 2 predecessors : 6 (19), 8 (27), 10 (27) -> 39
+Vertex 12, duration 20 predecessors : 1 (0), 6 (19) -> 21
+Vertex 13, duration 0 predecessors : 11 (39), 12 (21) -> 41
+
+Computing latest times of each vertex:
+Vertex 13 is the destination, setting earliest time to its earliest time 41
+Vertex 11, duration 2 successors : 13 (41) -> 39
+Vertex 12, duration 20 successors : 13 (41) -> 21
+Vertex 6, duration 2 successors : 11 (39), 12 (21) -> 19
+Vertex 8, duration 4 successors : 11 (39) -> 35
+Vertex 10, duration 12 successors : 11 (39) -> 27
+Vertex 5, duration 4 successors : 6 (19), 8 (35) -> 15
+Vertex 7, duration 2 successors : 8 (35) -> 33
+Vertex 9, duration 8 successors : 8 (35), 10 (27) -> 19
+Vertex 3, duration 9 successors : 10 (27), 9 (19) -> 10
+Vertex 4, duration 5 successors : 5 (15), 7 (33), 9 (19) -> 10
+Vertex 1, duration 10 successors : 12 (21), 3 (10), 4 (10) -> 0
+Vertex 2, duration 10 successors : 3 (10), 4 (10) -> 0
+Vertex 0, duration 0 successors : 1 (0), 2 (0) -> 0
+
+Task		0	1	2	3	4	5	6	7	8	9	10	11	12	13	
+Duration	0	10	10	9	5	4	2	2	4	8	12	2	20	0	
+Earliest	0	0	0	10	10	15	19	15	27	19	27	39	21	41	
+Latest		0	0	0	10	10	15	19	33	35	19	27	39	21	41	
+Float		0	0	0	0	0	0	0	18	8	0	0	0	0	0	
+
+Displaying critical path:
+Critical path : 0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 9 -> 10 -> 11 -> 12 -> 13
+
+Do you want to continue? (y/n): y
+Enter constraint table to use (ex: table 1): table 7
+Reading graph from table (adding alpha and omega):
+12 vertices
+16 edges
+0 -> 4 = 0
+0 -> 6 = 0
+0 -> 7 = 0
+1 -> 9 = 1
+2 -> 11 = 2
+3 -> 9 = 3
+4 -> 1 = 4
+4 -> 5 = 4
+5 -> 8 = 5
+6 -> 3 = 6
+6 -> 10 = 6
+7 -> 2 = 7
+7 -> 8 = 7
+8 -> 9 = 8
+9 -> 11 = 9
+10 -> 1 = 10
+
+Value matrix
+	0	1	2	3	4	5	6	7	8	9	10	11	
+0	-	-	-	-	0	-	0	0	-	-	-	-	
+1	-	-	-	-	-	-	-	-	-	1	-	-	
+2	-	-	-	-	-	-	-	-	-	-	-	2	
+3	-	-	-	-	-	-	-	-	-	3	-	-	
+4	-	4	-	-	-	4	-	-	-	-	-	-	
+5	-	-	-	-	-	-	-	-	5	-	-	-	
+6	-	-	-	6	-	-	-	-	-	-	6	-	
+7	-	-	7	-	-	-	-	-	7	-	-	-	
+8	-	-	-	-	-	-	-	-	-	8	-	-	
+9	-	-	-	-	-	-	-	-	-	-	-	9	
+10	-	10	-	-	-	-	-	-	-	-	-	-	
+11	-	-	-	-	-	-	-	-	-	-	-	-	
+
+Checking for cycles by successive deletion of entry points (i.e. no predecessors)
+Entry points: 0 
+Entry points: 4 6 7 
+Entry points: 2 3 5 10 
+Entry points: 1 8 
+Entry points: 9 
+Entry points: 11 
+Graph empty, no cycles detected
+
+Checking for negative durations
+No negative durations detected
+
+This graph is a scheduling graph
+
+Calculating ranks by successively removing vertices with no predecessors:
+Removing vertex 0 with rank 0
+Removing vertex 4 with rank 1
+Removing vertex 6 with rank 1
+Removing vertex 7 with rank 1
+Removing vertex 2 with rank 2
+Removing vertex 3 with rank 2
+Removing vertex 5 with rank 2
+Removing vertex 10 with rank 2
+Removing vertex 1 with rank 3
+Removing vertex 8 with rank 3
+Removing vertex 9 with rank 4
+Removing vertex 11 with rank 5
+
+Computing earliest times of each vertex:
+Vertex 0 is the source, setting earliest time to 0
+Vertex 4, duration 4 predecessors : 0 (0) -> 0
+Vertex 6, duration 6 predecessors : 0 (0) -> 0
+Vertex 7, duration 7 predecessors : 0 (0) -> 0
+Vertex 2, duration 2 predecessors : 7 (0) -> 7
+Vertex 3, duration 3 predecessors : 6 (0) -> 6
+Vertex 5, duration 5 predecessors : 4 (0) -> 4
+Vertex 10, duration 10 predecessors : 6 (0) -> 6
+Vertex 1, duration 1 predecessors : 4 (0), 10 (6) -> 16
+Vertex 8, duration 8 predecessors : 5 (4), 7 (0) -> 9
+Vertex 9, duration 9 predecessors : 1 (16), 3 (6), 8 (9) -> 17
+Vertex 11, duration 0 predecessors : 2 (7), 9 (17) -> 26
+
+Computing latest times of each vertex:
+Vertex 11 is the destination, setting earliest time to its earliest time 26
+Vertex 9, duration 9 successors : 11 (26) -> 17
+Vertex 1, duration 1 successors : 9 (17) -> 16
+Vertex 8, duration 8 successors : 9 (17) -> 9
+Vertex 2, duration 2 successors : 11 (26) -> 24
+Vertex 3, duration 3 successors : 9 (17) -> 14
+Vertex 5, duration 5 successors : 8 (9) -> 4
+Vertex 10, duration 10 successors : 1 (16) -> 6
+Vertex 4, duration 4 successors : 1 (16), 5 (4) -> 0
+Vertex 6, duration 6 successors : 3 (14), 10 (6) -> 0
+Vertex 7, duration 7 successors : 8 (9), 2 (24) -> 2
+Vertex 0, duration 0 successors : 4 (0), 6 (0), 7 (2) -> 0
+
+Task		0	1	2	3	4	5	6	7	8	9	10	11	
+Duration	0	1	2	3	4	5	6	7	8	9	10	0	
+Earliest	0	16	7	6	0	4	0	0	9	17	6	26	
+Latest		0	16	24	14	0	4	0	2	9	17	6	26	
+Float		0	0	17	8	0	0	0	2	0	0	0	0	
+
+Displaying critical path:
+Critical path : 0 -> 1 -> 4 -> 5 -> 6 -> 8 -> 9 -> 10 -> 11
+
+Do you want to continue? (y/n): y
+Enter constraint table to use (ex: table 1): table 8
+Reading graph from table (adding alpha and omega):
+12 vertices
+18 edges
+0 -> 4 = 0
+0 -> 5 = 0
+0 -> 6 = 0
+0 -> 7 = 0
+0 -> 10 = 0
+1 -> 9 = 1
+2 -> 9 = 2
+3 -> 9 = 3
+4 -> 1 = 4
+5 -> 1 = 5
+5 -> 8 = 5
+6 -> 3 = 6
+7 -> 2 = 7
+7 -> 8 = 7
+8 -> 9 = 9
+9 -> 11 = 9
+10 -> 1 = 10
+10 -> 3 = 10
+
+Value matrix
+	0	1	2	3	4	5	6	7	8	9	10	11	
+0	-	-	-	-	0	0	0	0	-	-	0	-	
+1	-	-	-	-	-	-	-	-	-	1	-	-	
+2	-	-	-	-	-	-	-	-	-	2	-	-	
+3	-	-	-	-	-	-	-	-	-	3	-	-	
+4	-	4	-	-	-	-	-	-	-	-	-	-	
+5	-	5	-	-	-	-	-	-	5	-	-	-	
+6	-	-	-	6	-	-	-	-	-	-	-	-	
+7	-	-	7	-	-	-	-	-	7	-	-	-	
+8	-	-	-	-	-	-	-	-	-	9	-	-	
+9	-	-	-	-	-	-	-	-	-	-	-	9	
+10	-	10	-	10	-	-	-	-	-	-	-	-	
+11	-	-	-	-	-	-	-	-	-	-	-	-	
+
+Checking for cycles by successive deletion of entry points (i.e. no predecessors)
+Entry points: 0 
+Entry points: 4 5 6 7 10 
+Entry points: 1 2 3 8 
+Entry points: 9 
+Entry points: 11 
+Graph empty, no cycles detected
+
+Checking for negative durations
+No negative durations detected
+
+This graph is a scheduling graph
+
+Calculating ranks by successively removing vertices with no predecessors:
+Removing vertex 0 with rank 0
+Removing vertex 4 with rank 1
+Removing vertex 5 with rank 1
+Removing vertex 6 with rank 1
+Removing vertex 7 with rank 1
+Removing vertex 10 with rank 1
+Removing vertex 1 with rank 2
+Removing vertex 2 with rank 2
+Removing vertex 3 with rank 2
+Removing vertex 8 with rank 2
+Removing vertex 9 with rank 3
+Removing vertex 11 with rank 4
+
+Computing earliest times of each vertex:
+Vertex 0 is the source, setting earliest time to 0
+Vertex 4, duration 4 predecessors : 0 (0) -> 0
+Vertex 5, duration 5 predecessors : 0 (0) -> 0
+Vertex 6, duration 6 predecessors : 0 (0) -> 0
+Vertex 7, duration 7 predecessors : 0 (0) -> 0
+Vertex 10, duration 10 predecessors : 0 (0) -> 0
+Vertex 1, duration 1 predecessors : 4 (0), 5 (0), 10 (0) -> 10
+Vertex 2, duration 2 predecessors : 7 (0) -> 7
+Vertex 3, duration 3 predecessors : 6 (0), 10 (0) -> 10
+Vertex 8, duration 9 predecessors : 5 (0), 7 (0) -> 7
+Vertex 9, duration 9 predecessors : 1 (10), 2 (7), 3 (10), 8 (7) -> 16
+Vertex 11, duration 0 predecessors : 9 (16) -> 25
+
+Computing latest times of each vertex:
+Vertex 11 is the destination, setting earliest time to its earliest time 25
+Vertex 9, duration 9 successors : 11 (25) -> 16
+Vertex 1, duration 1 successors : 9 (16) -> 15
+Vertex 2, duration 2 successors : 9 (16) -> 14
+Vertex 3, duration 3 successors : 9 (16) -> 13
+Vertex 8, duration 9 successors : 9 (16) -> 7
+Vertex 4, duration 4 successors : 1 (15) -> 11
+Vertex 5, duration 5 successors : 1 (15), 8 (7) -> 2
+Vertex 6, duration 6 successors : 3 (13) -> 7
+Vertex 7, duration 7 successors : 2 (14), 8 (7) -> 0
+Vertex 10, duration 10 successors : 1 (15), 3 (13) -> 3
+Vertex 0, duration 0 successors : 4 (11), 5 (2), 6 (7), 7 (0), 10 (3) -> 0
+
+Task		0	1	2	3	4	5	6	7	8	9	10	11	
+Duration	0	1	2	3	4	5	6	7	9	9	10	0	
+Earliest	0	10	7	10	0	0	0	0	7	16	0	25	
+Latest		0	15	14	13	11	2	7	0	7	16	3	25	
+Float		0	5	7	3	11	2	7	0	0	0	3	0	
+
+Displaying critical path:
+Critical path : 0 -> 7 -> 8 -> 9 -> 11
+
+Do you want to continue? (y/n): 
+Enter constraint table to use (ex: table 1): table 9
+Reading graph from table (adding alpha and omega):
+12 vertices
+19 edges
+0 -> 4 = 0
+0 -> 6 = 0
+0 -> 7 = 0
+0 -> 10 = 0
+1 -> 9 = 1
+2 -> 9 = 2
+3 -> 9 = 3
+4 -> 1 = 4
+4 -> 5 = 4
+5 -> 1 = 5
+5 -> 8 = 5
+6 -> 3 = 6
+7 -> 2 = 7
+7 -> 8 = 7
+8 -> 1 = 8
+8 -> 9 = 8
+9 -> 11 = 9
+10 -> 1 = 10
+10 -> 3 = 10
+
+Value matrix
+	0	1	2	3	4	5	6	7	8	9	10	11	
+0	-	-	-	-	0	-	0	0	-	-	0	-	
+1	-	-	-	-	-	-	-	-	-	1	-	-	
+2	-	-	-	-	-	-	-	-	-	2	-	-	
+3	-	-	-	-	-	-	-	-	-	3	-	-	
+4	-	4	-	-	-	4	-	-	-	-	-	-	
+5	-	5	-	-	-	-	-	-	5	-	-	-	
+6	-	-	-	6	-	-	-	-	-	-	-	-	
+7	-	-	7	-	-	-	-	-	7	-	-	-	
+8	-	8	-	-	-	-	-	-	-	8	-	-	
+9	-	-	-	-	-	-	-	-	-	-	-	9	
+10	-	10	-	10	-	-	-	-	-	-	-	-	
+11	-	-	-	-	-	-	-	-	-	-	-	-	
+
+Checking for cycles by successive deletion of entry points (i.e. no predecessors)
+Entry points: 0 
+Entry points: 4 6 7 10 
+Entry points: 2 3 5 
+Entry points: 8 
+Entry points: 1 
+Entry points: 9 
+Entry points: 11 
+Graph empty, no cycles detected
+
+Checking for negative durations
+No negative durations detected
+
+This graph is a scheduling graph
+
+Calculating ranks by successively removing vertices with no predecessors:
+Removing vertex 0 with rank 0
+Removing vertex 4 with rank 1
+Removing vertex 6 with rank 1
+Removing vertex 7 with rank 1
+Removing vertex 10 with rank 1
+Removing vertex 2 with rank 2
+Removing vertex 3 with rank 2
+Removing vertex 5 with rank 2
+Removing vertex 8 with rank 3
+Removing vertex 1 with rank 4
+Removing vertex 9 with rank 5
+Removing vertex 11 with rank 6
+
+Computing earliest times of each vertex:
+Vertex 0 is the source, setting earliest time to 0
+Vertex 4, duration 4 predecessors : 0 (0) -> 0
+Vertex 6, duration 6 predecessors : 0 (0) -> 0
+Vertex 7, duration 7 predecessors : 0 (0) -> 0
+Vertex 10, duration 10 predecessors : 0 (0) -> 0
+Vertex 2, duration 2 predecessors : 7 (0) -> 7
+Vertex 3, duration 3 predecessors : 6 (0), 10 (0) -> 10
+Vertex 5, duration 5 predecessors : 4 (0) -> 4
+Vertex 8, duration 8 predecessors : 5 (4), 7 (0) -> 9
+Vertex 1, duration 1 predecessors : 4 (0), 5 (4), 8 (9), 10 (0) -> 17
+Vertex 9, duration 9 predecessors : 1 (17), 2 (7), 3 (10), 8 (9) -> 18
+Vertex 11, duration 0 predecessors : 9 (18) -> 27
+
+Computing latest times of each vertex:
+Vertex 11 is the destination, setting earliest time to its earliest time 27
+Vertex 9, duration 9 successors : 11 (27) -> 18
+Vertex 1, duration 1 successors : 9 (18) -> 17
+Vertex 8, duration 8 successors : 9 (18), 1 (17) -> 9
+Vertex 2, duration 2 successors : 9 (18) -> 16
+Vertex 3, duration 3 successors : 9 (18) -> 15
+Vertex 5, duration 5 successors : 1 (17), 8 (9) -> 4
+Vertex 4, duration 4 successors : 1 (17), 5 (4) -> 0
+Vertex 6, duration 6 successors : 3 (15) -> 9
+Vertex 7, duration 7 successors : 8 (9), 2 (16) -> 2
+Vertex 10, duration 10 successors : 1 (17), 3 (15) -> 5
+Vertex 0, duration 0 successors : 4 (0), 6 (9), 7 (2), 10 (5) -> 0
+
+Task		0	1	2	3	4	5	6	7	8	9	10	11	
+Duration	0	1	2	3	4	5	6	7	8	9	10	0	
+Earliest	0	17	7	10	0	4	0	0	9	18	0	27	
+Latest		0	17	16	15	0	4	9	2	9	18	5	27	
+Float		0	0	9	5	0	0	9	2	0	0	5	0	
+
+Displaying critical path:
+Critical path : 0 -> 1 -> 4 -> 5 -> 8 -> 9 -> 11
+
+Do you want to continue? (y/n): y
+Enter constraint table to use (ex: table 1): table 10
+Reading graph from table (adding alpha and omega):
+10 vertices
+16 edges
+0 -> 1 = 0
+1 -> 2 = 2
+1 -> 4 = 2
+1 -> 5 = 2
+2 -> 3 = 3
+2 -> 4 = 3
+2 -> 8 = 3
+3 -> 7 = 5
+4 -> 5 = 6
+4 -> 6 = 6
+4 -> 8 = 6
+5 -> 6 = 2
+5 -> 7 = 2
+6 -> 9 = 1
+7 -> 8 = 6
+8 -> 9 = 1
+
+Value matrix
+	0	1	2	3	4	5	6	7	8	9	
+0	-	0	-	-	-	-	-	-	-	-	
+1	-	-	2	-	2	2	-	-	-	-	
+2	-	-	-	3	3	-	-	-	3	-	
+3	-	-	-	-	-	-	-	5	-	-	
+4	-	-	-	-	-	6	6	-	6	-	
+5	-	-	-	-	-	-	2	2	-	-	
+6	-	-	-	-	-	-	-	-	-	1	
+7	-	-	-	-	-	-	-	-	6	-	
+8	-	-	-	-	-	-	-	-	-	1	
+9	-	-	-	-	-	-	-	-	-	-	
+
+Checking for cycles by successive deletion of entry points (i.e. no predecessors)
+Entry points: 0 
+Entry points: 1 
+Entry points: 2 
+Entry points: 3 4 
+Entry points: 5 
+Entry points: 6 7 
+Entry points: 8 
+Entry points: 9 
+Graph empty, no cycles detected
+
+Checking for negative durations
+No negative durations detected
+
+This graph is a scheduling graph
+
+Calculating ranks by successively removing vertices with no predecessors:
+Removing vertex 0 with rank 0
+Removing vertex 1 with rank 1
+Removing vertex 2 with rank 2
+Removing vertex 3 with rank 3
+Removing vertex 4 with rank 3
+Removing vertex 5 with rank 4
+Removing vertex 6 with rank 5
+Removing vertex 7 with rank 5
+Removing vertex 8 with rank 6
+Removing vertex 9 with rank 7
+
+Computing earliest times of each vertex:
+Vertex 0 is the source, setting earliest time to 0
+Vertex 1, duration 2 predecessors : 0 (0) -> 0
+Vertex 2, duration 3 predecessors : 1 (0) -> 2
+Vertex 3, duration 5 predecessors : 2 (2) -> 5
+Vertex 4, duration 6 predecessors : 1 (0), 2 (2) -> 5
+Vertex 5, duration 2 predecessors : 1 (0), 4 (5) -> 11
+Vertex 6, duration 1 predecessors : 4 (5), 5 (11) -> 13
+Vertex 7, duration 6 predecessors : 3 (5), 5 (11) -> 13
+Vertex 8, duration 1 predecessors : 2 (2), 4 (5), 7 (13) -> 19
+Vertex 9, duration 0 predecessors : 6 (13), 8 (19) -> 20
+
+Computing latest times of each vertex:
+Vertex 9 is the destination, setting earliest time to its earliest time 20
+Vertex 8, duration 1 successors : 9 (20) -> 19
+Vertex 6, duration 1 successors : 9 (20) -> 19
+Vertex 7, duration 6 successors : 8 (19) -> 13
+Vertex 5, duration 2 successors : 6 (19), 7 (13) -> 11
+Vertex 3, duration 5 successors : 7 (13) -> 8
+Vertex 4, duration 6 successors : 8 (19), 6 (19), 5 (11) -> 5
+Vertex 2, duration 3 successors : 8 (19), 3 (8), 4 (5) -> 2
+Vertex 1, duration 2 successors : 5 (11), 4 (5), 2 (2) -> 0
+Vertex 0, duration 0 successors : 1 (0) -> 0
+
+Task		0	1	2	3	4	5	6	7	8	9	
+Duration	0	2	3	5	6	2	1	6	1	0	
+Earliest	0	0	2	5	5	11	13	13	19	20	
+Latest		0	0	2	8	5	11	19	13	19	20	
+Float		0	0	0	3	0	0	6	0	0	0	
+
+Displaying critical path:
+Critical path : 0 -> 1 -> 2 -> 4 -> 5 -> 7 -> 8 -> 9
+
+Do you want to continue? (y/n): y
+Enter constraint table to use (ex: table 1): table 11
+Reading graph from table (adding alpha and omega):
+10 vertices
+16 edges
+0 -> 1 = 0
+1 -> 2 = 1
+1 -> 4 = 1
+1 -> 5 = 1
+2 -> 3 = 1
+2 -> 8 = 1
+3 -> 7 = 4
+4 -> 2 = 2
+4 -> 6 = 2
+4 -> 8 = 2
+5 -> 4 = 5
+5 -> 6 = 5
+5 -> 7 = 5
+6 -> 8 = 6
+7 -> 8 = 3
+8 -> 9 = 0
+
+Value matrix
+	0	1	2	3	4	5	6	7	8	9	
+0	-	0	-	-	-	-	-	-	-	-	
+1	-	-	1	-	1	1	-	-	-	-	
+2	-	-	-	1	-	-	-	-	1	-	
+3	-	-	-	-	-	-	-	4	-	-	
+4	-	-	2	-	-	-	2	-	2	-	
+5	-	-	-	-	5	-	5	5	-	-	
+6	-	-	-	-	-	-	-	-	6	-	
+7	-	-	-	-	-	-	-	-	3	-	
+8	-	-	-	-	-	-	-	-	-	0	
+9	-	-	-	-	-	-	-	-	-	-	
+
+Checking for cycles by successive deletion of entry points (i.e. no predecessors)
+Entry points: 0 
+Entry points: 1 
+Entry points: 5 
+Entry points: 4 
+Entry points: 2 6 
+Entry points: 3 
+Entry points: 7 
+Entry points: 8 
+Entry points: 9 
+Graph empty, no cycles detected
+
+Checking for negative durations
+No negative durations detected
+
+This graph is a scheduling graph
+
+Calculating ranks by successively removing vertices with no predecessors:
+Removing vertex 0 with rank 0
+Removing vertex 1 with rank 1
+Removing vertex 5 with rank 2
+Removing vertex 4 with rank 3
+Removing vertex 2 with rank 4
+Removing vertex 6 with rank 4
+Removing vertex 3 with rank 5
+Removing vertex 7 with rank 6
+Removing vertex 8 with rank 7
+Removing vertex 9 with rank 8
+
+Computing earliest times of each vertex:
+Vertex 0 is the source, setting earliest time to 0
+Vertex 1, duration 1 predecessors : 0 (0) -> 0
+Vertex 5, duration 5 predecessors : 1 (0) -> 1
+Vertex 4, duration 2 predecessors : 1 (0), 5 (1) -> 6
+Vertex 2, duration 1 predecessors : 1 (0), 4 (6) -> 8
+Vertex 6, duration 6 predecessors : 4 (6), 5 (1) -> 8
+Vertex 3, duration 4 predecessors : 2 (8) -> 9
+Vertex 7, duration 3 predecessors : 3 (9), 5 (1) -> 13
+Vertex 8, duration 0 predecessors : 2 (8), 4 (6), 6 (8), 7 (13) -> 16
+Vertex 9, duration 0 predecessors : 8 (16) -> 16
+
+Computing latest times of each vertex:
+Vertex 9 is the destination, setting earliest time to its earliest time 16
+Vertex 8, duration 0 successors : 9 (16) -> 16
+Vertex 7, duration 3 successors : 8 (16) -> 13
+Vertex 3, duration 4 successors : 7 (13) -> 9
+Vertex 2, duration 1 successors : 8 (16), 3 (9) -> 8
+Vertex 6, duration 6 successors : 8 (16) -> 10
+Vertex 4, duration 2 successors : 8 (16), 2 (8), 6 (10) -> 6
+Vertex 5, duration 5 successors : 7 (13), 6 (10), 4 (6) -> 1
+Vertex 1, duration 1 successors : 2 (8), 4 (6), 5 (1) -> 0
+Vertex 0, duration 0 successors : 1 (0) -> 0
+
+Task		0	1	2	3	4	5	6	7	8	9	
+Duration	0	1	1	4	2	5	6	3	0	0	
+Earliest	0	0	8	9	6	1	8	13	16	16	
+Latest		0	0	8	9	6	1	10	13	16	16	
+Float		0	0	0	0	0	0	2	0	0	0	
+
+Displaying critical path:
+Critical path : 0 -> 1 -> 2 -> 3 -> 4 -> 5 -> 7 -> 8 -> 9
+
+Do you want to continue? (y/n): y
+Enter constraint table to use (ex: table 1): table 12
+Reading graph from table (adding alpha and omega):
+14 vertices
+23 edges
+0 -> 1 = 0
+0 -> 2 = 0
+1 -> 3 = 10
+1 -> 4 = 10
+1 -> 12 = 10
+2 -> 3 = 10
+2 -> 4 = 10
+3 -> 9 = 9
+4 -> 5 = 5
+4 -> 7 = 5
+4 -> 9 = 5
+5 -> 6 = 4
+5 -> 8 = 4
+6 -> 11 = 2
+6 -> 12 = 2
+7 -> 8 = 2
+8 -> 11 = 4
+9 -> 8 = 8
+9 -> 10 = 8
+10 -> 3 = 12
+10 -> 11 = 12
+11 -> 13 = 2
+12 -> 13 = 20
+
+Value matrix
+	0	1	2	3	4	5	6	7	8	9	10	11	12	13	
+0	-	0	0	-	-	-	-	-	-	-	-	-	-	-	
+1	-	-	-	10	10	-	-	-	-	-	-	-	10	-	
+2	-	-	-	10	10	-	-	-	-	-	-	-	-	-	
+3	-	-	-	-	-	-	-	-	-	9	-	-	-	-	
+4	-	-	-	-	-	5	-	5	-	5	-	-	-	-	
+5	-	-	-	-	-	-	4	-	4	-	-	-	-	-	
+6	-	-	-	-	-	-	-	-	-	-	-	2	2	-	
+7	-	-	-	-	-	-	-	-	2	-	-	-	-	-	
+8	-	-	-	-	-	-	-	-	-	-	-	4	-	-	
+9	-	-	-	-	-	-	-	-	8	-	8	-	-	-	
+10	-	-	-	12	-	-	-	-	-	-	-	12	-	-	
+11	-	-	-	-	-	-	-	-	-	-	-	-	-	2	
+12	-	-	-	-	-	-	-	-	-	-	-	-	-	20	
+13	-	-	-	-	-	-	-	-	-	-	-	-	-	-	
+
+Checking for cycles by successive deletion of entry points (i.e. no predecessors)
+Entry points: 0 
+Entry points: 1 2 
+Entry points: 4 
+Entry points: 5 7 
+Entry points: 6 
+Entry points: 12 
+Entry points: None
+No entry points, graph has a cycle
+This graph is not a scheduling graph
+
+Do you want to continue? (y/n): n
