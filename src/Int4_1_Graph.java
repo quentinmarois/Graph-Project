@@ -276,15 +276,46 @@ public class Int4_1_Graph {
         StringBuilder path = new StringBuilder();
         path.append("Critical path : ");
 
-        for (Int4_1_Vertex v : this.vertices){
-            if (v.latestTime - v.earliestTime == 0){
-                path.append(Int4_1_TextColor.CYAN).append(v.id).append(Int4_1_TextColor.RESET).append(" -> ");
+        // Start at vertex 0, add to path
+        Int4_1_Vertex current = getVertex(0);
+        path.append(Int4_1_TextColor.CYAN).append(current.id).append(Int4_1_TextColor.RESET).append(" -> ");
+
+        while (true){
+            List<Int4_1_Vertex> successors = getSuccessors(current);
+            if (successors.size() == 1 && successors.get(0).latestTime - successors.get(0).earliestTime == 0){
+                current = successors.get(0);
+                path.append(Int4_1_TextColor.CYAN).append(current.id).append(Int4_1_TextColor.RESET).append(" -> ");
+            } else if (successors.size() > 1) {
+                // If multiple successors with 0 total float, choose the one with the smallest rank (we want the longest path)
+                // If multiple successors with the same rank, display that it is one of the critical paths
+
+                Int4_1_Vertex min = null;
+                for (Int4_1_Vertex v : successors){
+                    if (v.latestTime - v.earliestTime == 0){
+                        if (min == null){
+                            min = v;
+                        } else {
+                            if (v.getRank() < min.getRank()){
+                                min = v;
+                            }
+                        }
+                    }
+                }
+                if (min != null){
+                    current = min;
+                    path.append(Int4_1_TextColor.CYAN).append(current.id).append(Int4_1_TextColor.RESET).append(" -> ");
+                } else {
+                    break;
+                }
+
+            } else {
+                break;
             }
         }
+
         // Remove trailing arrow
         path.delete(path.length() - 4, path.length());
         System.out.println(path);
-
     }
 
     private List<Int4_1_Vertex> getSuccessors(Int4_1_Vertex vertex){
